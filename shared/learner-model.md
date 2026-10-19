@@ -2,6 +2,10 @@
 
 Use this protocol in the coach and every topic skill. Treat the model as a revisable account of demonstrated understanding, not a verdict about the learner.
 
+## Persist the shared record
+
+Apply [progress storage](progress-storage.md) before teaching and after meaningful updates. Use one private learner profile across all topics, load its current revision, and save with conflict detection and verification. Keep the schema below for both JSON storage and YAML exports. Save during the session rather than relying on a final checkpoint.
+
 ## Maintain a small working model
 
 Track only concepts relevant to the current goal, active gaps, and prerequisites. Do not populate the entire competency map with guesses.

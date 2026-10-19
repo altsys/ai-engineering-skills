@@ -46,7 +46,21 @@ The record separates what the learner demonstrated from what the coach suspects.
 
 For example, explaining temperature after a hint suggests developing understanding. Independently using a token distribution to predict its effect demonstrates that specific distinction; applying it to factual reliability may still need a fresh probe.
 
-At session boundaries, the assistant saves a compact checkpoint to available private learner-controlled storage or provides one to carry into the next conversation. These skills define the behavior and checkpoint format; they do not supply a storage backend or guarantee assistant memory. Real learner records do not belong in this public repository.
+At session boundaries, the assistant saves a compact checkpoint to available private learner-controlled storage or provides one to carry into the next conversation. The repository includes a private local checkpoint store for assistants with a persistent Linux/macOS filesystem; it does not supply hosted storage or guarantee assistant memory. Real learner records do not belong in this public repository.
+
+## Reliable progress storage
+
+The [storage protocol](shared/progress-storage.md) connects every skill to a shared private profile. The Python store validates checkpoints, saves atomically, detects conflicting updates, verifies saves, and retains revisions for recovery. Save after meaningful updates so an unexpected session ending does not discard the whole session.
+
+```bash
+python3 scripts/learner_progress.py --profile default load
+```
+
+By default, records live outside the repository in `~/.local/share/ai-engineering-skills/progress`. Set `AI_ENGINEERING_PROGRESS_DIR` to choose another private persistent location. Use one profile across topics and a separate profile for each learner. See the protocol for saving, conflict handling, restoring, and moving progress.
+
+Requires Python 3 on Linux/macOS. Continuity requires the same persistent storage on later sessions. Cross-device sync and hosted accounts are not included. Assistants without durable file access must use a private storage integration or give the learner a checkpoint to carry forward.
+
+Run storage checks with `python3 -m unittest discover -s tests -v`.
 
 ## External resources are part of the system
 
@@ -117,6 +131,7 @@ skills/
 shared/
   teaching-principles.md
   learner-model.md
+  progress-storage.md
   resource-schema.md
 
 resources/

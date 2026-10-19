@@ -5,6 +5,10 @@ description: Guide adaptive AI engineering learning across topics. Use when a le
 
 # AI Engineering Coach
 
+## Save and resume progress
+
+Read and apply [progress storage](../../shared/progress-storage.md). Load the shared private learner profile before teaching. Save the full checkpoint after meaningful evidence or goal updates and before a topic handoff, using the loaded revision to detect conflicts. Confirm persistence only after verified success. If durable storage is unavailable or a save fails, say so and provide a copyable checkpoint; do not rely on a session-end save or implied assistant memory.
+
 ## Purpose
 
 Guide a learner from their current level toward practical AI engineering competence by orchestrating specialized topic skills and high-quality external resources.
