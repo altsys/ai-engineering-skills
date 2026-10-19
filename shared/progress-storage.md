@@ -8,6 +8,8 @@ For an assistant with Python and a persistent Linux/macOS filesystem, use `scrip
 
 Use a stable learner-selected profile ID. In a private single-user environment, `default` is suitable; in a shared environment, establish the correct profile before reading any progress. Never derive an ID from an email address or use one profile for multiple learners. Reuse the same root and profile across topics and sessions.
 
+Record storage limitations that affect resumption in the checkpoint's `constraints`, including temporary or session-only storage and any need for a learner-carried export. Recheck these constraints when the environment changes; a checkpoint's old storage note is not proof of current availability.
+
 Check whether the filesystem survives the session. A successful write proves local storage, not cross-device sync or survival of a temporary container. Do not describe a temporary filesystem as durable. If no durable filesystem is available, use an already available private learner-controlled file service with version/conflict protection and read-back verification. Otherwise provide an export and explicitly say progress has not been durably saved. Do not silently switch storage or create competing copies.
 
 ## Load before teaching

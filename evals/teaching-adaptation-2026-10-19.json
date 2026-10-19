@@ -1,0 +1,846 @@
+{
+  "evaluation": {
+    "source_revision": "340f825",
+    "kind": "synthetic tutor behavior trials",
+    "criteria": {
+      "routing": "Select the topic and intervention from the active gap or new goal; change route when evidence changes.",
+      "calibration": "Do not treat reading, repetition, a hint, or one narrow correct answer as broad mastery.",
+      "preservation": "Retain prior independent evidence and unrelated concept records when adding or contradicting claims.",
+      "contradictions": "Narrow or reopen the affected application while retaining earlier successful evidence.",
+      "evidence_integrity": "Separate supplied observations from inference and new predictions; do not invent experiment results.",
+      "checkpoint": "Load the supplied profile and save meaningful updates with a pending probe and correct assistance labels."
+    },
+    "limits": "These trials observe tutor behavior, not actual human learning gains. Synthetic traces are supplied facts. The temporary filesystem is not durable storage."
+  },
+  "source_published_commit": "cbe7f587442e158f7ea75d72f54967113397fc73",
+  "source_tree": "6cd1b87f0f881e9381f7cb82ef9c122de6ffc2fd",
+  "profiles": {
+    "assisted": {
+      "store_version": 1,
+      "revisions": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-19T15:07:08.986181+00:00",
+          "checkpoint": {
+            "schema_version": 1,
+            "updated": "synthetic prior session",
+            "goal": "Understand sampling before building an agent",
+            "constraints": [
+              "Use synthetic data; no paid or external actions."
+            ],
+            "active_topic": "llm-fundamentals",
+            "concepts": [
+              {
+                "concept": "temperature changes token probabilities",
+                "current_belief": "Temperature changes probabilities rather than adding knowledge.",
+                "evidence": [
+                  {
+                    "reference": "synthetic prior session, task 1",
+                    "observation": "Repeated the supplied explanation after a worked example.",
+                    "assistance": "worked example"
+                  }
+                ],
+                "assessment": "developing",
+                "confidence": "medium: one scoped observation",
+                "gap_or_uncertainty": "Transfer to other tasks remains untested.",
+                "next_probe": "Choose a fresh task relevant to the current goal."
+              }
+            ],
+            "next_action": "Resume from the current learner request; probe only unresolved distinctions."
+          }
+        },
+        {
+          "revision": 2,
+          "saved_at": "2026-10-19T15:07:48.522188+00:00",
+          "checkpoint": {
+            "schema_version": 1,
+            "updated": "2026-10-19, assisted repetition and advancement request",
+            "goal": "Understand sampling before building an agent",
+            "constraints": [
+              "Use synthetic data; no paid or external actions.",
+              "Exercise filesystem is temporary; no durable cross-session storage."
+            ],
+            "active_topic": "llm-fundamentals",
+            "concepts": [
+              {
+                "concept": "temperature changes token probabilities",
+                "current_belief": "States that temperature changes probabilities rather than adding knowledge; self-reports understanding sampling.",
+                "evidence": [
+                  {
+                    "reference": "synthetic prior session, task 1",
+                    "observation": "Repeated the supplied explanation after a worked example.",
+                    "assistance": "worked example"
+                  },
+                  {
+                    "reference": "2026-10-19, current learner turn",
+                    "observation": "Reported watching the entire inference lesson, repeated the tutor explanation that temperature changes probabilities rather than adding knowledge, and requested marking fundamentals done and moving to agents.",
+                    "assistance": "worked example"
+                  }
+                ],
+                "assessment": "developing",
+                "confidence": "high: evidence is repeated explanation after assistance; independent application remains untested",
+                "gap_or_uncertainty": "Independent prediction and transfer to agent debugging remain untested; lesson completion does not establish fundamentals completion.",
+                "next_probe": "An agent repeatedly gives the same wrong date. With weights and prompt fixed, predict how raising temperature changes answer variety and factual correctness; justify whether this is a reliable fix."
+              }
+            ],
+            "next_action": "Respect the request to work toward agents by using the pending agent-debugging sampling probe; keep sampling developing and fundamentals completion unestablished until relevant independent evidence arrives."
+          }
+        },
+        {
+          "revision": 3,
+          "saved_at": "2026-10-19T15:08:29.676559+00:00",
+          "checkpoint": {
+            "schema_version": 1,
+            "updated": "2026-10-19, independent sampling transfer and agents handoff",
+            "goal": "Understand sampling before building an agent",
+            "constraints": [
+              "Use synthetic data; no paid or external actions.",
+              "Exercise filesystem is temporary; no durable cross-session storage."
+            ],
+            "active_topic": "agents-workflows",
+            "concepts": [
+              {
+                "concept": "temperature changes token probabilities",
+                "current_belief": "Explains that higher temperature increases sampling variety without changing learned knowledge; a correct date could occur by chance, so evidence checking is preferable to temperature as a reliable accuracy fix.",
+                "evidence": [
+                  {
+                    "reference": "synthetic prior session, task 1",
+                    "observation": "Repeated the supplied explanation after a worked example.",
+                    "assistance": "worked example"
+                  },
+                  {
+                    "reference": "2026-10-19, current learner turn",
+                    "observation": "Reported watching the entire inference lesson, repeated the tutor explanation that temperature changes probabilities rather than adding knowledge, and requested marking fundamentals done and moving to agents.",
+                    "assistance": "worked example"
+                  },
+                  {
+                    "reference": "2026-10-19, wrong-date agent transfer probe",
+                    "observation": "Independently predicted greater variety with prompt and weights fixed, distinguished unchanged knowledge from a chance correct sample, and proposed checking an authoritative source or supplying evidence rather than relying on temperature for accuracy.",
+                    "assistance": "none"
+                  }
+                ],
+                "assessment": "demonstrated",
+                "confidence": "medium: independent causal explanation and design choice on one qualitative agent-debugging scenario",
+                "gap_or_uncertainty": "Demonstrated only qualitative temperature versus knowledge and factual-reliability reasoning in this scenario; numerical distributions, implementation, and broader fundamentals remain untested.",
+                "next_probe": "No immediate sampling probe needed; revisit if later agent-design evidence conflicts with this scoped understanding."
+              },
+              {
+                "concept": "fixed workflow versus model-directed control",
+                "current_belief": "Untested; learner requested moving to agents.",
+                "evidence": [],
+                "assessment": "untested",
+                "confidence": "low: no learner prediction or design attempt yet",
+                "gap_or_uncertainty": "Whether the learner can justify agent control for a task with known dependencies and identify added failure modes.",
+                "next_probe": "A local task always reads a supplied document, extracts a date, and writes a summary, in that order. What would letting a model choose the next action add, and what new failure could it introduce?"
+              }
+            ],
+            "next_action": "Begin agents with the pending fixed-workflow versus model-directed-control diagnostic. Sampling distinction demonstrated only in the tested qualitative scenario; do not mark all fundamentals complete. Await learner prediction before a worked contrast or local canned-response experiment."
+          }
+        },
+        {
+          "revision": 4,
+          "saved_at": "2026-10-19T15:09:07.706617+00:00",
+          "checkpoint": {
+            "schema_version": 1,
+            "updated": "2026-10-19, workflow evidence and sampling reliability contradiction",
+            "goal": "Understand sampling before building an agent",
+            "constraints": [
+              "Use synthetic data; no paid or external actions.",
+              "Exercise filesystem is temporary; no durable cross-session storage."
+            ],
+            "active_topic": "llm-fundamentals",
+            "concepts": [
+              {
+                "concept": "temperature changes token probabilities",
+                "current_belief": "Previously distinguished variety from factual reliability; now asks whether exploration across repeated hotter samples reliably fixes wrong facts and proposes increasing temperature whenever an agent gives a wrong date.",
+                "evidence": [
+                  {
+                    "reference": "synthetic prior session, task 1",
+                    "observation": "Repeated the supplied explanation after a worked example.",
+                    "assistance": "worked example"
+                  },
+                  {
+                    "reference": "2026-10-19, current learner turn",
+                    "observation": "Reported watching the entire inference lesson, repeated the tutor explanation that temperature changes probabilities rather than adding knowledge, and requested marking fundamentals done and moving to agents.",
+                    "assistance": "worked example"
+                  },
+                  {
+                    "reference": "2026-10-19, wrong-date agent transfer probe",
+                    "observation": "Independently predicted greater variety with prompt and weights fixed, distinguished unchanged knowledge from a chance correct sample, and proposed checking an authoritative source or supplying evidence rather than relying on temperature for accuracy.",
+                    "assistance": "none"
+                  },
+                  {
+                    "reference": "2026-10-19, repeated-attempt accuracy claim",
+                    "observation": "Asked whether higher-temperature exploration reliably fixes wrong facts across repeated attempts, and said they would turn temperature up whenever an agent gets a date wrong. This conflicts with the earlier independent rejection of temperature as a reliable accuracy fix.",
+                    "assistance": "none"
+                  }
+                ],
+                "assessment": "needs-recheck",
+                "confidence": "high: explicit contradiction in application to factual reliability; uncertainty remains about confusion between candidate coverage and selecting a verified answer",
+                "gap_or_uncertainty": "Reopen only the reliability of hotter retries and candidate selection. Preserve earlier evidence of qualitative variety and unchanged learned knowledge; do not infer loss of all sampling understanding.",
+                "next_probe": "Thought experiment: hotter retries produce five different dates without consulting a source. Explain how the agent could determine which to return and design one change to make that decision evidence-based."
+              },
+              {
+                "concept": "fixed workflow versus model-directed control",
+                "current_belief": "Chooses a deterministic sequence for the known three-step task because model-directed actions could skip extraction or repeat a step.",
+                "evidence": [
+                  {
+                    "reference": "2026-10-19, fixed three-step workflow probe",
+                    "observation": "Independently chose a deterministic sequence and identified skipped extraction and repeated steps as failures introduced by model-directed control.",
+                    "assistance": "none"
+                  }
+                ],
+                "assessment": "demonstrated",
+                "confidence": "medium: justified baseline choice and concrete failures on one fixed-dependency scenario",
+                "gap_or_uncertainty": "Scoped to the known three-step task; benefits of adaptive control, stop conditions, recovery, and implementation remain untested.",
+                "next_probe": "After sampling reliability repair, predict behavior for a local task with an empty tool response and specify a bounded recovery or stop rule."
+              }
+            ],
+            "next_action": "Briefly repair the distinction between generating a correct candidate by chance and reliably selecting a correct final answer using the pending synthetic date-retry probe. Retain the demonstrated fixed-workflow choice and resume bounded-loop agent work afterward. No empirical experiment has run."
+          }
+        }
+      ]
+    },
+    "goal-change": {
+      "store_version": 1,
+      "revisions": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-19T15:07:08.989928+00:00",
+          "checkpoint": {
+            "schema_version": 1,
+            "updated": "synthetic prior session",
+            "goal": "Choose a model for support classification",
+            "constraints": [
+              "Use synthetic data; no paid or external actions."
+            ],
+            "active_topic": "model-selection",
+            "concepts": [
+              {
+                "concept": "held-out evaluation avoids tuning leakage",
+                "current_belief": "Separate tuning examples from held-out comparison cases.",
+                "evidence": [
+                  {
+                    "reference": "synthetic prior session, task 1",
+                    "observation": "Independently designed a development and held-out split with a frozen rubric.",
+                    "assistance": "none"
+                  }
+                ],
+                "assessment": "demonstrated",
+                "confidence": "medium: one scoped observation",
+                "gap_or_uncertainty": "Transfer to other tasks remains untested.",
+                "next_probe": "Choose a fresh task relevant to the current goal."
+              }
+            ],
+            "next_action": "Resume from the current learner request; probe only unresolved distinctions."
+          }
+        },
+        {
+          "revision": 2,
+          "saved_at": "2026-10-19T15:08:09.862918+00:00",
+          "checkpoint": {
+            "schema_version": 1,
+            "updated": "2026-10-19, current learner request",
+            "goal": "Choose a model for support classification",
+            "constraints": [
+              "Use synthetic data; no paid or external actions.",
+              "Response-time limit: 500ms; measurement percentile and workload conditions not yet specified.",
+              "Refund-request class must have very few false positives; numerical criterion not yet specified.",
+              "Exercise filesystem is temporary; no durable cross-session storage."
+            ],
+            "active_topic": "model-selection",
+            "concepts": [
+              {
+                "concept": "held-out evaluation avoids tuning leakage",
+                "current_belief": "Separate tuning examples from held-out comparison cases.",
+                "evidence": [
+                  {
+                    "reference": "synthetic prior session, task 1",
+                    "observation": "Independently designed a development and held-out split with a frozen rubric.",
+                    "assistance": "none"
+                  }
+                ],
+                "assessment": "demonstrated",
+                "confidence": "medium: one scoped observation",
+                "gap_or_uncertainty": "Transfer to other tasks remains untested.",
+                "next_probe": "Choose a fresh task relevant to the current goal."
+              },
+              {
+                "concept": "Choose models by workload-specific quality requirements and latency constraints rather than public leaderboard rank",
+                "current_belief": "Learner reports being tempted to choose the public leaderboard winner; inference: the decision rule for task fit versus benchmark rank needs diagnosis.",
+                "evidence": [
+                  {
+                    "reference": "2026-10-19, current learner request",
+                    "observation": "Reports a frozen held-out support-classification set, two candidates, a 500ms limit, and a requirement for very few refund-request false positives; has not yet supplied a comparison rule or results.",
+                    "assistance": "none"
+                  }
+                ],
+                "assessment": "untested",
+                "confidence": "low: a stated temptation does not establish the learner’s actual decision rule.",
+                "gap_or_uncertainty": "How to operationalize the false-positive requirement, specify latency measurement, and gate candidates before ranking remains untested.",
+                "next_probe": "Before consulting leaderboard scores, what pass/fail criteria and measurements would you require on the frozen support-classification workload to select a model?"
+              }
+            ],
+            "next_action": "Ask the pending model-selection probe; elicit an independent decision rule before teaching. Preserve prior demonstrated split design; do not repeat split instruction. No model results have been measured."
+          }
+        },
+        {
+          "revision": 3,
+          "saved_at": "2026-10-19T15:08:57.031324+00:00",
+          "checkpoint": {
+            "schema_version": 1,
+            "updated": "2026-10-19, goal change to reliable refund tool execution",
+            "goal": "Learn reliable refund tool execution first, using only a local fake refund tool; model comparison deferred.",
+            "constraints": [
+              "Use synthetic data; no paid calls, external APIs, real refunds, or repository edits.",
+              "Only a local fake refund tool with no external effects.",
+              "Prior support-classification project constraints, deferred: 500ms response-time limit and very few refund-request false positives; numerical and measurement details remain unspecified.",
+              "Exercise filesystem is temporary; no durable cross-session storage."
+            ],
+            "active_topic": "tool-calling",
+            "concepts": [
+              {
+                "concept": "held-out evaluation avoids tuning leakage",
+                "current_belief": "Separate tuning examples from held-out comparison cases.",
+                "evidence": [
+                  {
+                    "reference": "synthetic prior session, task 1",
+                    "observation": "Independently designed a development and held-out split with a frozen rubric.",
+                    "assistance": "none"
+                  }
+                ],
+                "assessment": "demonstrated",
+                "confidence": "medium: one scoped observation",
+                "gap_or_uncertainty": "Transfer to other tasks remains untested.",
+                "next_probe": "Choose a fresh task relevant to the current goal."
+              },
+              {
+                "concept": "Choose models by workload-specific quality requirements and latency constraints rather than public leaderboard rank",
+                "current_belief": "Learner reports being tempted to choose the public leaderboard winner; inference: the decision rule for task fit versus benchmark rank needs diagnosis.",
+                "evidence": [
+                  {
+                    "reference": "2026-10-19, current learner request",
+                    "observation": "Reports a frozen held-out support-classification set, two candidates, a 500ms limit, and a requirement for very few refund-request false positives; has not yet supplied a comparison rule or results.",
+                    "assistance": "none"
+                  }
+                ],
+                "assessment": "untested",
+                "confidence": "low: a stated temptation does not establish the learner’s actual decision rule.",
+                "gap_or_uncertainty": "How to operationalize the false-positive requirement, specify latency measurement, and gate candidates before ranking remains untested.",
+                "next_probe": "Before consulting leaderboard scores, what pass/fail criteria and measurements would you require on the frozen support-classification workload to select a model?"
+              },
+              {
+                "concept": "Schema validation is distinct from application authorization to execute a refund",
+                "current_belief": "Learner states they planned to execute every schema-valid call automatically.",
+                "evidence": [
+                  {
+                    "reference": "2026-10-19, goal-change reply",
+                    "observation": "Stated intended policy: automatically execute every schema-valid call. No execution or implementation shown.",
+                    "assistance": "none"
+                  }
+                ],
+                "assessment": "developing",
+                "confidence": "medium: stated policy suggests a missing authorization boundary; rationale and implementation remain untested.",
+                "gap_or_uncertainty": "Whether the learner distinguishes valid argument shape from permission, refund eligibility, and application execution authority.",
+                "next_probe": "After timeout probe, present a schema-valid fake refund request denied by application policy and ask whether it should reach the fake tool."
+              },
+              {
+                "concept": "A timeout can leave a write outcome unknown; retries require duplicate-effect prevention",
+                "current_belief": "Learner states they planned to retry after any timeout.",
+                "evidence": [
+                  {
+                    "reference": "2026-10-19, goal-change reply",
+                    "observation": "Stated intended retry policy: retry after any timeout. No fake tool trace has been run or interpreted.",
+                    "assistance": "none"
+                  }
+                ],
+                "assessment": "developing",
+                "confidence": "medium: blanket retry policy suggests an unresolved unknown-outcome failure mode; causal understanding is not yet tested.",
+                "gap_or_uncertainty": "Whether the learner recognizes a successful write before a timeout and can prevent duplicate refunds using an application-controlled operation identity and tool-enforced idempotency.",
+                "next_probe": "Prediction exercise: a local fake tool appends a $25 refund to an in-memory ledger on every invocation; first invocation then raises TimeoutError, and the application retries once. What does the ledger contain afterward, and why?"
+              }
+            ],
+            "next_action": "Pause model-selection probe without marking it complete. Use tool-calling skill to ask the timeout-after-write prediction before running the local fake or revealing the outcome. Then diagnose authorization separately. No experiment or transfer success is claimed."
+          }
+        }
+      ]
+    },
+    "latency": {
+      "store_version": 1,
+      "revisions": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-19T15:07:08.987909+00:00",
+          "checkpoint": {
+            "schema_version": 1,
+            "updated": "synthetic prior session",
+            "goal": "Reduce assistant p95 latency below 500ms",
+            "constraints": [
+              "Use synthetic data; no paid or external actions."
+            ],
+            "active_topic": "latency-cost",
+            "concepts": [
+              {
+                "concept": "tail latency differs from the mean",
+                "current_belief": "Average latency can hide slow requests.",
+                "evidence": [
+                  {
+                    "reference": "synthetic prior session, task 1",
+                    "observation": "Independently found p95 in a supplied sorted latency sample and rejected using only the mean.",
+                    "assistance": "none"
+                  }
+                ],
+                "assessment": "demonstrated",
+                "confidence": "medium: one scoped observation",
+                "gap_or_uncertainty": "Transfer to other tasks remains untested.",
+                "next_probe": "Choose a fresh task relevant to the current goal."
+              }
+            ],
+            "next_action": "Resume from the current learner request; probe only unresolved distinctions."
+          }
+        },
+        {
+          "revision": 2,
+          "saved_at": "2026-10-19T15:08:01.029326+00:00",
+          "checkpoint": {
+            "schema_version": 1,
+            "updated": "2026-10-19, synthetic burst-trace tutoring turn",
+            "goal": "Reduce assistant p95 latency below 500ms",
+            "constraints": [
+              "Use synthetic data; no paid or external actions.",
+              "Filesystem available for this exercise only; no durable cross-session storage.",
+              "No repository edits."
+            ],
+            "active_topic": "serving-deployment",
+            "concepts": [
+              {
+                "concept": "tail latency differs from the mean",
+                "current_belief": "Average latency can hide slow requests.",
+                "evidence": [
+                  {
+                    "reference": "synthetic prior session, task 1",
+                    "observation": "Independently found p95 in a supplied sorted latency sample and rejected using only the mean.",
+                    "assistance": "none"
+                  }
+                ],
+                "assessment": "demonstrated",
+                "confidence": "medium: one scoped observation",
+                "gap_or_uncertainty": "Transfer to other tasks remains untested.",
+                "next_probe": "Choose a fresh task relevant to the current goal."
+              },
+              {
+                "concept": "Select a latency experiment from queue wait versus service time",
+                "current_belief": "Learner proposes shortening the system prompt after supplying a trace dominated by queue wait; inference: bottleneck prioritization may be unresolved.",
+                "evidence": [
+                  {
+                    "reference": "2026-10-19, synthetic burst trace",
+                    "observation": "Learner supplied sequential stages: queue 900ms, retrieval 40ms, inference 70ms, encoding 10ms; proposed shortening system prompt and asked whether useful. No rationale or experiment result supplied.",
+                    "assistance": "none"
+                  }
+                ],
+                "assessment": "untested",
+                "confidence": "low: proposal is a question, not a demonstrated causal explanation",
+                "gap_or_uncertainty": "Can learner distinguish direct service-time savings from load-dependent queue effects, and choose an experiment? One trace does not establish p95.",
+                "next_probe": "Predict total latency if inference drops from 70ms to 35ms while queue wait stays 900ms; explain whether the 500ms target is reached."
+              }
+            ],
+            "next_action": "Use queue-focused serving-deployment intervention; await prediction for inference 70ms to 35ms with queue fixed. Then propose replaying synthetic burst at lower arrival rate, holding model, prompt, and capacity fixed, and measure queue waits and end-to-end p95. No experiment has run."
+          }
+        },
+        {
+          "revision": 3,
+          "saved_at": "2026-10-19T15:08:47.312077+00:00",
+          "checkpoint": {
+            "schema_version": 1,
+            "updated": "2026-10-19, follow-up burst result and corpus-growth transfer",
+            "goal": "Reduce assistant p95 latency below 500ms",
+            "constraints": [
+              "Use synthetic data; no paid or external actions.",
+              "Filesystem available for this exercise only; no durable cross-session storage.",
+              "No repository edits."
+            ],
+            "active_topic": "latency-cost",
+            "concepts": [
+              {
+                "concept": "tail latency differs from the mean",
+                "current_belief": "Average latency can hide slow requests.",
+                "evidence": [
+                  {
+                    "reference": "synthetic prior session, task 1",
+                    "observation": "Independently found p95 in a supplied sorted latency sample and rejected using only the mean.",
+                    "assistance": "none"
+                  }
+                ],
+                "assessment": "demonstrated",
+                "confidence": "medium: one scoped observation",
+                "gap_or_uncertainty": "Transfer to other tasks remains untested.",
+                "next_probe": "Choose a fresh task relevant to the current goal."
+              },
+              {
+                "concept": "Select a latency experiment from queue wait versus service time",
+                "current_belief": "Learner correctly sums fixed sequential stages and reports a load experiment consistent with queueing; proposes more inference replicas when a new trace has queue 0ms and retrieval 900ms. Inference: transfer of bottleneck prioritization remains unreliable.",
+                "evidence": [
+                  {
+                    "reference": "2026-10-19, synthetic burst trace",
+                    "observation": "Learner supplied sequential stages: queue 900ms, retrieval 40ms, inference 70ms, encoding 10ms; proposed shortening system prompt and asked whether useful. No rationale or experiment result supplied.",
+                    "assistance": "none"
+                  },
+                  {
+                    "reference": "2026-10-19, fixed-queue prediction",
+                    "observation": "Correctly computed 985ms after inference changed 70ms to 35ms and stated target still missed with other stages fixed.",
+                    "assistance": "hint: tutor supplied the fixed-queue counterfactual and highlighted queue dominance"
+                  },
+                  {
+                    "reference": "2026-10-19, learner-reported synthetic lower-arrival experiment",
+                    "observation": "Learner reports independently running prescribed lower-arrival test: end-to-end p95 1020ms to 190ms, queue-wait p95 900ms to 70ms, inference p95 unchanged at 70ms. Raw samples and controls not inspected; no experiment execution by tutor.",
+                    "assistance": "tutor prescribed experiment; learner reports independent execution"
+                  },
+                  {
+                    "reference": "2026-10-19, corpus-growth transfer task",
+                    "observation": "For a new sequential trace queue 0ms, retrieval 900ms, inference 70ms, encoding 10ms, learner proposed adding inference replicas again.",
+                    "assistance": "none"
+                  }
+                ],
+                "assessment": "needs-recheck",
+                "confidence": "high: correct assisted arithmetic and reported queue intervention coexist with a conflicting optimization choice on the changed trace; cause of choice remains untested",
+                "gap_or_uncertainty": "Earlier queue-focused progress does not establish independent transfer. Need distinguish workload-specific bottleneck from reusable replica remedy; corpus growth alone does not identify retrieval internals. Stage percentiles cannot generally be added to derive end-to-end p95.",
+                "next_probe": "For the new single-request trace, predict the total if inference were instant and all other stages stayed fixed; explain what this implies for choosing the next stage to inspect."
+              }
+            ],
+            "next_action": "Acknowledge correct 985ms prediction and learner-reported load result while narrowing progress to that queueing case. Ask zero-inference counterfactual for current retrieval-heavy trace. Await answer before choosing retrieval substage experiment; route to retrieval after bottleneck prerequisite if needed. Do not infer p95 from a single trace or add independent stage percentiles."
+          }
+        }
+      ]
+    },
+    "prerequisite": {
+      "store_version": 1,
+      "revisions": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-19T15:07:08.983292+00:00",
+          "checkpoint": {
+            "schema_version": 1,
+            "updated": "synthetic prior session",
+            "goal": "Build a grounded policy assistant",
+            "constraints": [
+              "Use synthetic data; no paid or external actions."
+            ],
+            "active_topic": "rag",
+            "concepts": [
+              {
+                "concept": "sampling changes selection, not weights",
+                "current_belief": "Temperature changes token selection, not learned weights.",
+                "evidence": [
+                  {
+                    "reference": "synthetic prior session, task 1",
+                    "observation": "Independently explained that changing sampling does not retrain the model.",
+                    "assistance": "none"
+                  }
+                ],
+                "assessment": "demonstrated",
+                "confidence": "medium: one scoped observation",
+                "gap_or_uncertainty": "Transfer to other tasks remains untested.",
+                "next_probe": "Choose a fresh task relevant to the current goal."
+              }
+            ],
+            "next_action": "Resume from the current learner request; probe only unresolved distinctions."
+          }
+        },
+        {
+          "revision": 2,
+          "saved_at": "2026-10-19T15:07:45.248401+00:00",
+          "checkpoint": {
+            "schema_version": 1,
+            "updated": "2026-10-19: policy-assistant candidate-set diagnosis",
+            "goal": "Build a grounded policy assistant",
+            "constraints": [
+              "Use synthetic data; no paid or external actions."
+            ],
+            "active_topic": "retrieval",
+            "concepts": [
+              {
+                "concept": "sampling changes selection, not weights",
+                "current_belief": "Temperature changes token selection, not learned weights.",
+                "evidence": [
+                  {
+                    "reference": "synthetic prior session, task 1",
+                    "observation": "Independently explained that changing sampling does not retrain the model.",
+                    "assistance": "none"
+                  }
+                ],
+                "assessment": "demonstrated",
+                "confidence": "medium: one scoped observation",
+                "gap_or_uncertainty": "Transfer to other tasks remains untested.",
+                "next_probe": "Choose a fresh task relevant to the current goal."
+              },
+              {
+                "concept": "Reranking is bounded by the supplied candidate set",
+                "current_belief": "Learner states that a smarter reranker should find the correct policy even though it is absent from the top 20 retrieved chunks.",
+                "evidence": [
+                  {
+                    "reference": "2026-10-19 current learner message",
+                    "observation": "Proposed improving the reranker despite reporting that the correct policy is absent from the top 20 retrieved chunks.",
+                    "assistance": "none"
+                  }
+                ],
+                "assessment": "developing",
+                "confidence": "medium: explicit causal claim suggests a candidate-generation/reranking gap; confirm whether reranker was assumed to search beyond its input",
+                "gap_or_uncertainty": "Distinguish candidate generation from reranking before continuing answer-grounding work. No post-intervention response yet.",
+                "next_probe": "With a reranker restricted to the supplied 20 chunks, predict whether an absent policy can appear in its output and explain why."
+              }
+            ],
+            "next_action": "Repair the candidate-set prerequisite: ask the bounded-reranker prediction and causal explanation. Then use a fresh diagnostic case before returning to RAG answer grounding; do not count the assigned probe as completed."
+          }
+        },
+        {
+          "revision": 3,
+          "saved_at": "2026-10-19T15:08:28.202927+00:00",
+          "checkpoint": {
+            "schema_version": 1,
+            "updated": "2026-10-19: embedding prerequisite diagnosis after bounded-reranker probe",
+            "goal": "Build a grounded policy assistant",
+            "constraints": [
+              "Use synthetic data; no paid or external actions."
+            ],
+            "active_topic": "embeddings",
+            "concepts": [
+              {
+                "concept": "sampling changes selection, not weights",
+                "current_belief": "Temperature changes token selection, not learned weights.",
+                "evidence": [
+                  {
+                    "reference": "synthetic prior session, task 1",
+                    "observation": "Independently explained that changing sampling does not retrain the model.",
+                    "assistance": "none"
+                  }
+                ],
+                "assessment": "demonstrated",
+                "confidence": "medium: one scoped observation",
+                "gap_or_uncertainty": "Transfer to other tasks remains untested.",
+                "next_probe": "Choose a fresh task relevant to the current goal."
+              },
+              {
+                "concept": "Reranking is bounded by the supplied candidate set",
+                "current_belief": "Learner now states that a reranker restricted to the supplied candidates cannot return a missing document, following an explicit boundary hint.",
+                "evidence": [
+                  {
+                    "reference": "2026-10-19 current learner message",
+                    "observation": "Proposed improving the reranker despite reporting that the correct policy is absent from the top 20 retrieved chunks.",
+                    "assistance": "none"
+                  },
+                  {
+                    "reference": "2026-10-19 bounded-reranker follow-up",
+                    "observation": "After the tutor explicitly restricted the reranker to its 20 inputs, learner correctly stated that it cannot return the missing document. No causal explanation or fresh transfer task yet.",
+                    "assistance": "hint"
+                  }
+                ],
+                "assessment": "developing",
+                "confidence": "medium: correct response under explicit scaffolding; independent transfer and causal explanation remain untested",
+                "gap_or_uncertainty": "Initial misconception retained as evidence; bounded-input prediction corrected with assistance. Ability to choose and test the repair stage independently remains untested.",
+                "next_probe": "After repairing embeddings prerequisite, diagnose a fresh retrieval miss and choose a measurement that would disprove the diagnosis."
+              },
+              {
+                "concept": "Semantic embeddings can place differently worded related texts near each other",
+                "current_belief": "Learner explicitly describes embeddings as hashes and believes a question and answer need exactly matching words to have matching vectors.",
+                "evidence": [
+                  {
+                    "reference": "2026-10-19 embedding prerequisite follow-up",
+                    "observation": "Said an embedding is a hash, asserted exact words are necessary for matching vectors, and asked whether this explains the missing policy.",
+                    "assistance": "none"
+                  }
+                ],
+                "assessment": "developing",
+                "confidence": "high: explicit representation misconception; corrected understanding has not yet been observed",
+                "gap_or_uncertainty": "Needs to distinguish learned semantic proximity from exact identity and avoid treating similarity as guaranteed relevance. Actual cause of the policy miss remains untested.",
+                "next_probe": "Thought experiment: for a question about refunds on unused tickets, compare an unrelated passage sharing ticket/refund words with a paraphrased reimbursement policy; predict the more useful semantic neighbor and explain why."
+              }
+            ],
+            "next_action": "Give a brief local explanation of learned semantic proximity, then ask one paraphrase-versus-word-overlap prediction with justification. No computed similarities or retrieval diagnosis claimed. Repair this prerequisite before returning to candidate-generation debugging; later check independent reranking transfer."
+          }
+        },
+        {
+          "revision": 4,
+          "saved_at": "2026-10-19T15:09:23.730798+00:00",
+          "checkpoint": {
+            "schema_version": 1,
+            "updated": "2026-10-19: paraphrase explanation and return to retrieval diagnosis",
+            "goal": "Build a grounded policy assistant",
+            "constraints": [
+              "Use synthetic data; no paid or external actions."
+            ],
+            "active_topic": "retrieval",
+            "concepts": [
+              {
+                "concept": "sampling changes selection, not weights",
+                "current_belief": "Temperature changes token selection, not learned weights.",
+                "evidence": [
+                  {
+                    "reference": "synthetic prior session, task 1",
+                    "observation": "Independently explained that changing sampling does not retrain the model.",
+                    "assistance": "none"
+                  }
+                ],
+                "assessment": "demonstrated",
+                "confidence": "medium: one scoped observation",
+                "gap_or_uncertainty": "Transfer to other tasks remains untested.",
+                "next_probe": "Choose a fresh task relevant to the current goal."
+              },
+              {
+                "concept": "Reranking is bounded by the supplied candidate set",
+                "current_belief": "Learner now states that a reranker restricted to the supplied candidates cannot return a missing document, following an explicit boundary hint.",
+                "evidence": [
+                  {
+                    "reference": "2026-10-19 current learner message",
+                    "observation": "Proposed improving the reranker despite reporting that the correct policy is absent from the top 20 retrieved chunks.",
+                    "assistance": "none"
+                  },
+                  {
+                    "reference": "2026-10-19 bounded-reranker follow-up",
+                    "observation": "After the tutor explicitly restricted the reranker to its 20 inputs, learner correctly stated that it cannot return the missing document. No causal explanation or fresh transfer task yet.",
+                    "assistance": "hint"
+                  }
+                ],
+                "assessment": "developing",
+                "confidence": "medium: correct response under explicit scaffolding; independent transfer and causal explanation remain untested",
+                "gap_or_uncertainty": "Initial misconception retained as evidence; bounded-input prediction corrected with assistance. Ability to choose and test the repair stage independently remains untested.",
+                "next_probe": "After repairing embeddings prerequisite, diagnose a fresh retrieval miss and choose a measurement that would disprove the diagnosis."
+              },
+              {
+                "concept": "Semantic embeddings can place differently worded related texts near each other",
+                "current_belief": "After a brief explanation, learner correctly explains that reimbursement and money back have similar meanings despite different words; earlier embedding-as-hash belief retained in evidence.",
+                "evidence": [
+                  {
+                    "reference": "2026-10-19 embedding prerequisite follow-up",
+                    "observation": "Said an embedding is a hash, asserted exact words are necessary for matching vectors, and asked whether this explains the missing policy.",
+                    "assistance": "none"
+                  },
+                  {
+                    "reference": "2026-10-19 paraphrase-versus-word-overlap probe",
+                    "observation": "Selected B and justified it using similarity between reimbursement and money back despite different words. Then asked whether the missing policy was definitely caused by a bad embedding model.",
+                    "assistance": "hint: brief semantic-proximity explanation immediately preceded this contrast"
+                  }
+                ],
+                "assessment": "developing",
+                "confidence": "medium: correct explanation on one scaffolded paraphrase example; independent transfer and actual model behavior untested",
+                "gap_or_uncertainty": "Enough provisional understanding to resume retrieval debugging. Semantic similarity versus relevance/truth and independent transfer remain untested; no numerical similarity experiment has been run.",
+                "next_probe": "Use a fresh high-similarity-but-irrelevant result when relevant to debugging; do not repeat the completed paraphrase probe."
+              },
+              {
+                "concept": "A missing retrieved policy does not uniquely identify an embedding-model failure",
+                "current_belief": "Learner asks whether the missing policy can now be attributed definitely to a bad embedding model and whether it should be replaced; inference: causal diagnosis may be overconfident.",
+                "evidence": [
+                  {
+                    "reference": "2026-10-19 retrieval diagnosis follow-up",
+                    "observation": "Asked to conclude definite embedding-model causation and replace the model after correctly explaining the paraphrase example. No pipeline inspection or comparison result supplied.",
+                    "assistance": "none for diagnosis; prior hint addressed embeddings only"
+                  }
+                ],
+                "assessment": "developing",
+                "confidence": "medium: question suggests premature attribution, but learner has not attempted differential diagnosis",
+                "gap_or_uncertainty": "Need evidence distinguishing missing or filtered-out answer-bearing chunks from poor ranking among eligible indexed chunks. No actual failure cause established.",
+                "next_probe": "Choose one concrete check that distinguishes missing/filtered content from semantic-ranking failure, and state what result would undermine the embedding-model diagnosis."
+              }
+            ],
+            "next_action": "Return to policy-assistant retrieval debugging: acknowledge scoped paraphrase success, reject definite causation, and ask for one concrete coverage/filter-versus-ranking check with a disconfirming result. Keep embeddings provisional; no model replacement or experiment result claimed."
+          }
+        }
+      ]
+    }
+  },
+  "storage_resume_retest": {
+    "revision": 5,
+    "checkpoint": {
+      "schema_version": 1,
+      "updated": "2026-10-19: resumed pending retrieval probe; recorded temporary-storage constraint",
+      "goal": "Build a grounded policy assistant",
+      "constraints": [
+        "Use synthetic data; no paid or external actions.",
+        "Filesystem is temporary and available only for this exercise; local checkpoints are not durably saved. Learner-carried export required for later resumption."
+      ],
+      "active_topic": "retrieval",
+      "concepts": [
+        {
+          "concept": "sampling changes selection, not weights",
+          "current_belief": "Temperature changes token selection, not learned weights.",
+          "evidence": [
+            {
+              "reference": "synthetic prior session, task 1",
+              "observation": "Independently explained that changing sampling does not retrain the model.",
+              "assistance": "none"
+            }
+          ],
+          "assessment": "demonstrated",
+          "confidence": "medium: one scoped observation",
+          "gap_or_uncertainty": "Transfer to other tasks remains untested.",
+          "next_probe": "Choose a fresh task relevant to the current goal."
+        },
+        {
+          "concept": "Reranking is bounded by the supplied candidate set",
+          "current_belief": "Learner now states that a reranker restricted to the supplied candidates cannot return a missing document, following an explicit boundary hint.",
+          "evidence": [
+            {
+              "reference": "2026-10-19 current learner message",
+              "observation": "Proposed improving the reranker despite reporting that the correct policy is absent from the top 20 retrieved chunks.",
+              "assistance": "none"
+            },
+            {
+              "reference": "2026-10-19 bounded-reranker follow-up",
+              "observation": "After the tutor explicitly restricted the reranker to its 20 inputs, learner correctly stated that it cannot return the missing document. No causal explanation or fresh transfer task yet.",
+              "assistance": "hint"
+            }
+          ],
+          "assessment": "developing",
+          "confidence": "medium: correct response under explicit scaffolding; independent transfer and causal explanation remain untested",
+          "gap_or_uncertainty": "Initial misconception retained as evidence; bounded-input prediction corrected with assistance. Ability to choose and test the repair stage independently remains untested.",
+          "next_probe": "After repairing embeddings prerequisite, diagnose a fresh retrieval miss and choose a measurement that would disprove the diagnosis."
+        },
+        {
+          "concept": "Semantic embeddings can place differently worded related texts near each other",
+          "current_belief": "After a brief explanation, learner correctly explains that reimbursement and money back have similar meanings despite different words; earlier embedding-as-hash belief retained in evidence.",
+          "evidence": [
+            {
+              "reference": "2026-10-19 embedding prerequisite follow-up",
+              "observation": "Said an embedding is a hash, asserted exact words are necessary for matching vectors, and asked whether this explains the missing policy.",
+              "assistance": "none"
+            },
+            {
+              "reference": "2026-10-19 paraphrase-versus-word-overlap probe",
+              "observation": "Selected B and justified it using similarity between reimbursement and money back despite different words. Then asked whether the missing policy was definitely caused by a bad embedding model.",
+              "assistance": "hint: brief semantic-proximity explanation immediately preceded this contrast"
+            }
+          ],
+          "assessment": "developing",
+          "confidence": "medium: correct explanation on one scaffolded paraphrase example; independent transfer and actual model behavior untested",
+          "gap_or_uncertainty": "Enough provisional understanding to resume retrieval debugging. Semantic similarity versus relevance/truth and independent transfer remain untested; no numerical similarity experiment has been run.",
+          "next_probe": "Use a fresh high-similarity-but-irrelevant result when relevant to debugging; do not repeat the completed paraphrase probe."
+        },
+        {
+          "concept": "A missing retrieved policy does not uniquely identify an embedding-model failure",
+          "current_belief": "Learner asks whether the missing policy can now be attributed definitely to a bad embedding model and whether it should be replaced; inference: causal diagnosis may be overconfident.",
+          "evidence": [
+            {
+              "reference": "2026-10-19 retrieval diagnosis follow-up",
+              "observation": "Asked to conclude definite embedding-model causation and replace the model after correctly explaining the paraphrase example. No pipeline inspection or comparison result supplied.",
+              "assistance": "none for diagnosis; prior hint addressed embeddings only"
+            }
+          ],
+          "assessment": "developing",
+          "confidence": "medium: question suggests premature attribution, but learner has not attempted differential diagnosis",
+          "gap_or_uncertainty": "Need evidence distinguishing missing or filtered-out answer-bearing chunks from poor ranking among eligible indexed chunks. No actual failure cause established.",
+          "next_probe": "Choose one concrete check that distinguishes missing/filtered content from semantic-ranking failure, and state what result would undermine the embedding-model diagnosis."
+        }
+      ],
+      "next_action": "Return to policy-assistant retrieval debugging: acknowledge scoped paraphrase success, reject definite causation, and ask for one concrete coverage/filter-versus-ranking check with a disconfirming result. Keep embeddings provisional; no model replacement or experiment result claimed."
+    },
+    "result": "Added temporary storage constraint; all concept records and evidence unchanged; pending retrieval diagnosis resumed."
+  },
+  "fresh_resume": {
+    "profile": "goal-change",
+    "revision": 3,
+    "result": "Resumed timeout-after-write ledger prediction; no checkpoint update for continue message."
+  },
+  "independent_audit": {
+    "scope": "Four checkpoint histories, source instructions, frozen rubric; no initial reviewer conclusions supplied.",
+    "findings": "No substantive evidence-retention, routing, or calibration failure; one temporary-storage constraint omission corrected and retested."
+  }
+}
