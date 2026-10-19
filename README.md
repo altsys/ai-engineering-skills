@@ -38,6 +38,16 @@ Whenever practical, make the concept observable. Ask the learner to predict firs
 
 Do not count content consumption as learning. Look for evidence in explanation, prediction, debugging, transfer, implementation, and justified engineering decisions.
 
+## Keep a revisable learner model
+
+The coach and topic skills share a small record of the learner's goal, current beliefs, evidence, assessment confidence, unresolved gaps, and the next useful probe. They update it after meaningful interactions, using the [learner model protocol](shared/learner-model.md).
+
+The record separates what the learner demonstrated from what the coach suspects. Assisted answers remain assisted evidence. Later contradictions narrow or reopen an assessment without erasing earlier progress. Teaching choices follow the revised model, not a fixed lesson order.
+
+For example, explaining temperature after a hint suggests developing understanding. Independently using a token distribution to predict its effect demonstrates that specific distinction; applying it to factual reliability may still need a fresh probe.
+
+At session boundaries, the assistant saves a compact checkpoint to available private learner-controlled storage or provides one to carry into the next conversation. These skills define the behavior and checkpoint format; they do not supply a storage backend or guarantee assistant memory. Real learner records do not belong in this public repository.
+
 ## External resources are part of the system
 
 The AI should not replace excellent books, papers, courses, documentation, visualizations, or repositories with generated summaries. It should help the learner use the best source for the current gap.
@@ -80,6 +90,7 @@ skills/
 
 shared/
   teaching-principles.md
+  learner-model.md
   resource-schema.md
 
 resources/

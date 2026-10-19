@@ -47,3 +47,7 @@ Small exercises should accumulate into systems that resemble actual AI engineeri
 ## 10. Require evidence of learning
 
 A topic is complete when the learner can demonstrate the skill, not when they have consumed the assigned content.
+
+## 11. Revise the learner model continuously
+
+Apply [the learner model protocol](learner-model.md) across all topic skills. Update beliefs and assessments from meaningful interactions, distinguish evidence from inference, preserve contradictions, and use the revised record to choose the next step. Keep one shared checkpoint across sessions and topic handoffs; never store real learner records in this public repository.
