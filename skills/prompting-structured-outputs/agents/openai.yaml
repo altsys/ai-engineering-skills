@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prompting and Structured Outputs"
+  short_description: "Build understanding through targeted experiments"
+  default_prompt: "Use $prompting-structured-outputs to diagnose my understanding and guide one useful experiment."

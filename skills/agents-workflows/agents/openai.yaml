@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agents and Workflows"
+  short_description: "Build understanding through targeted experiments"
+  default_prompt: "Use $agents-workflows to diagnose my understanding and guide one useful experiment."

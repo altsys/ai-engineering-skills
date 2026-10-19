@@ -1,0 +1,4 @@
+interface:
+  display_name: "Production AI System Design"
+  short_description: "Build understanding through targeted experiments"
+  default_prompt: "Use $production-ai-system-design to diagnose my understanding and guide one useful experiment."

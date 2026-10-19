@@ -87,6 +87,32 @@ skills/
     SKILL.md
   llm-fundamentals/
     SKILL.md
+  prompting-structured-outputs/
+    SKILL.md
+  embeddings/
+    SKILL.md
+  retrieval/
+    SKILL.md
+  rag/
+    SKILL.md
+  tool-calling/
+    SKILL.md
+  agents-workflows/
+    SKILL.md
+  evals/
+    SKILL.md
+  observability/
+    SKILL.md
+  latency-cost/
+    SKILL.md
+  model-selection/
+    SKILL.md
+  serving-deployment/
+    SKILL.md
+  safety-failure-handling/
+    SKILL.md
+  production-ai-system-design/
+    SKILL.md
 
 shared/
   teaching-principles.md
@@ -98,6 +124,29 @@ resources/
 ```
 
 The master coach helps identify the next important gap and routes learning across topic skills. Topic skills contain the competency map, diagnostic behavior, intervention strategies, experiments, resource guidance, and standards for evidence of understanding.
+
+## Topic skills
+
+Choose a skill directly or let the coach route from the current gap. Each topic provides a competency map, a diagnostic probe, a controlled experiment, transfer evidence, and a learner-model handoff.
+
+| Skill | Focus |
+| --- | --- |
+| [LLM Fundamentals](skills/llm-fundamentals/SKILL.md) | Predict and explain model behavior |
+| [Prompting and Structured Outputs](skills/prompting-structured-outputs/SKILL.md) | Prompt reliability, examples, schema-constrained generation, or invalid structured responses |
+| [Embeddings](skills/embeddings/SKILL.md) | Vector representations, semantic similarity, embedding models, or nearest-neighbor behavior |
+| [Retrieval](skills/retrieval/SKILL.md) | Search quality, chunking, hybrid search, reranking, or retrieval misses |
+| [Retrieval-Augmented Generation](skills/rag/SKILL.md) | Grounded answers, citations, retrieved context, or RAG system failures |
+| [Tool Calling](skills/tool-calling/SKILL.md) | Function calls, tool schemas, tool execution, or external actions requested by a model |
+| [Agents and Workflows](skills/agents-workflows/SKILL.md) | Agent loops, planning, autonomous execution, workflow orchestration, or stopping behavior |
+| [Evaluations](skills/evals/SKILL.md) | LLM quality measurement, regression testing, benchmark design, or model-based judges |
+| [Observability](skills/observability/SKILL.md) | LLM tracing, production debugging, quality monitoring, or telemetry design |
+| [Latency and Cost](skills/latency-cost/SKILL.md) | Token budgets, slow responses, caching, batching, or inference cost tradeoffs |
+| [Model Selection](skills/model-selection/SKILL.md) | Choosing or comparing models, model routing, or deciding whether a larger model is needed |
+| [Serving and Deployment](skills/serving-deployment/SKILL.md) | Deploying LLM services, inference capacity, load handling, or rollout reliability |
+| [Safety and Failure Handling](skills/safety-failure-handling/SKILL.md) | Prompt injection, unsafe tool actions, data leakage, or resilient LLM failure behavior |
+| [Production AI System Design](skills/production-ai-system-design/SKILL.md) | End-to-end AI architecture, production tradeoffs, or integrating quality, reliability, and operational constraints |
+
+Keep this repository together when using the skills: topic instructions depend on `shared/` and `resources/`. Copying a topic folder alone omits the shared teaching and learner-model protocols.
 
 ## What this is not
 

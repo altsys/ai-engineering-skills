@@ -49,20 +49,22 @@ Resume from an available checkpoint; provide a compact checkpoint at session end
 
 Use this as a map, not a rigid sequence.
 
-- LLM fundamentals
-- prompting and structured outputs
-- embeddings
-- retrieval
-- RAG
-- tool calling
-- agents and workflows
-- evals
-- observability
-- latency and cost
-- model selection
-- serving and deployment
-- safety and failure handling
-- production AI system design
+- [LLM fundamentals](../llm-fundamentals/SKILL.md)
+- [Prompting and Structured Outputs](../prompting-structured-outputs/SKILL.md)
+- [Embeddings](../embeddings/SKILL.md)
+- [Retrieval](../retrieval/SKILL.md)
+- [Retrieval-Augmented Generation](../rag/SKILL.md)
+- [Tool Calling](../tool-calling/SKILL.md)
+- [Agents and Workflows](../agents-workflows/SKILL.md)
+- [Evaluations](../evals/SKILL.md)
+- [Observability](../observability/SKILL.md)
+- [Latency and Cost](../latency-cost/SKILL.md)
+- [Model Selection](../model-selection/SKILL.md)
+- [Serving and Deployment](../serving-deployment/SKILL.md)
+- [Safety and Failure Handling](../safety-failure-handling/SKILL.md)
+- [Production AI System Design](../production-ai-system-design/SKILL.md)
+
+Route by the diagnosed gap, not list order. Pass the learner goal, relevant concept records, evidence, and pending probe. Read the selected skill before teaching; return its evidence to the same record.
 
 ## Advancement rule
 

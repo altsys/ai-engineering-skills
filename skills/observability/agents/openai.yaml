@@ -1,0 +1,4 @@
+interface:
+  display_name: "Observability"
+  short_description: "Build understanding through targeted experiments"
+  default_prompt: "Use $observability to diagnose my understanding and guide one useful experiment."

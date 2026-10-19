@@ -1,0 +1,4 @@
+interface:
+  display_name: "Retrieval-Augmented Generation"
+  short_description: "Build understanding through targeted experiments"
+  default_prompt: "Use $rag to diagnose my understanding and guide one useful experiment."

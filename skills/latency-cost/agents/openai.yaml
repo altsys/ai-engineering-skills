@@ -1,0 +1,4 @@
+interface:
+  display_name: "Latency and Cost"
+  short_description: "Build understanding through targeted experiments"
+  default_prompt: "Use $latency-cost to diagnose my understanding and guide one useful experiment."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Embeddings"
+  short_description: "Build understanding through targeted experiments"
+  default_prompt: "Use $embeddings to diagnose my understanding and guide one useful experiment."
