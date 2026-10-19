@@ -237,6 +237,8 @@ These topics are not unimportant. They are deferred because they are not automat
 
 ## Resource selection
 
+Start with [hf-inference](../../resources/catalog.md#hf-inference) when its stated gap matches. Use its exact sections, limitations, and follow-up experiment; select an alternative when the diagnosis calls for it.
+
 Select resources after identifying the learning need, not before.
 
 Do not build the experience around "Chapter 1, then Chapter 2." Instead use:

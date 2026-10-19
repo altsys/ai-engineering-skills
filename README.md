@@ -78,6 +78,8 @@ A skill should select a resource **after identifying the learning need**. When a
 
 The goal is not to collect links. Every resource should earn its place.
 
+The [resource catalog](resources/catalog.md) maps all 14 topic skills to reviewed sections, prerequisites, focused exercises, and alternatives. It includes selected AI Engineering from Scratch lessons, Hugging Face material, and official engineering documentation. The catalog records where toy implementations and provider-specific behavior limit an example.
+
 ## Adaptive scope
 
 Topic lists are competency maps, not mandatory syllabi.
