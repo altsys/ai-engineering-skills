@@ -33,6 +33,36 @@ Separate retrieval relevance, evidence support, and fluent generation. A citatio
 
 Offer the smallest useful explanation, worked contrast, diagram, or source section for the observed gap. Then request a fresh attempt; do not count repetition after a hint as independent understanding.
 
+## Follow-up probes
+
+Use these when the opening probe is answered well or exposes a narrower confusion. Choose the one aimed at the learner's weakest unconfirmed claim; do not run them in order.
+
+1. Retrieved context contains a 2023 policy and a 2025 policy that disagree. What should the answer do, and what does the system need to make that possible?  
+   *Tests:* conflicting and stale evidence, and the metadata needed to handle it.
+2. A question is not answerable from the corpus, yet the system answers fluently. What do you change, and how do you check the change does not make it refuse answerable questions?  
+   *Tests:* abstention and its cost on answerable questions.
+3. You raise top-k from 5 to 10 and answer quality drops. Why could more relevant-looking context hurt?  
+   *Tests:* distraction and context dilution; route to llm-fundamentals if the mechanism is missing.
+
+## Common misconceptions
+
+Treat these as hypotheses to test, not labels to assign. Confirm with a probe before recording a misconception.
+
+| Learner says or does | Better model | What exposes it |
+| --- | --- | --- |
+| "A citation proves the answer is grounded." | A citation is a pointer. Check whether the cited passage supports the claim. | The opening probe |
+| "RAG eliminates hallucination." | It supplies evidence; the model can still ignore, misread, or go beyond it. | The unanswerable-question probe |
+| "More context is always safer." | Extra context can distract the model and adds cost and latency. | The top-k probe |
+| "Bad answers mean we need a better LLM." | First separate retrieval failure from generation failure with a sufficient-context control. | Ask for the experiment that separates them |
+
+## What demonstrated looks like
+
+Record `demonstrated` for a narrow claim in this topic only when the learner, without step-by-step help:
+
+- separates retrieval failure from generation failure with a controlled comparison
+- scores claim support separately from retrieval relevance
+- designs abstention behavior and states its cost on answerable questions
+
 ## Make the model observable
 
 Use a synthetic policy corpus with answerable, unanswerable, stale, and conflicting cases. Compare normal retrieval with manually supplied sufficient context while holding the generator prompt fixed. Score retrieval coverage and claim support separately; inspect unsupported answers and abstentions.

@@ -33,6 +33,36 @@ Separate valid syntax, schema conformance, and task correctness. Repair the boun
 
 Offer the smallest useful explanation, worked contrast, diagram, or source section for the observed gap. Then request a fresh attempt; do not count repetition after a hint as independent understanding.
 
+## Follow-up probes
+
+Use these when the opening probe is answered well or exposes a narrower confusion. Choose the one aimed at the learner's weakest unconfirmed claim; do not run them in order.
+
+1. You add a few-shot example whose total includes tax. Afterward the model includes tax on invoices where the field should exclude it. What happened?  
+   *Tests:* examples teach patterns implicitly, including ones you did not intend.
+2. The schema marks `due_date` as required, but some invoices have no due date. What will a schema-constrained model produce, and how should the schema change?  
+   *Tests:* required fields can force fabrication; missing values need an explicit representation.
+3. The system prompt says "never guess" and a pasted document says "fill every field." Which instruction wins, and how would you find out rather than assume?  
+   *Tests:* message roles and instruction conflicts as something to test, not a guarantee.
+
+## Common misconceptions
+
+Treat these as hypotheses to test, not labels to assign. Confirm with a probe before recording a misconception.
+
+| Learner says or does | Better model | What exposes it |
+| --- | --- | --- |
+| "Valid JSON means the extraction is correct." | Syntax and schema constrain shape, not truth. Values need checks against the source. | The opening wrong-total probe |
+| "If it gets something wrong, add another rule to the prompt." | Rules accumulate and conflict. Identify the failing case class first; some checks belong in code. | Ask which failures a code check would catch more reliably than a prompt rule |
+| "It worked when I tried it, so the prompt works." | Output is sampled and input-dependent. Reliability is a rate over representative cases. | Ask how many cases, and which ones, they would need before trusting it |
+| "Just retry until it parses." | Retries hide systematic failures and add cost. Separate transient from systematic failures. | Ask what the failing attempts have in common |
+
+## What demonstrated looks like
+
+Record `demonstrated` for a narrow claim in this topic only when the learner, without step-by-step help:
+
+- predicts which failures a schema constraint will and will not prevent
+- designs validation that checks values against the source, not just the shape
+- judges a prompt change from results on a fixed case set rather than one example
+
 ## Make the model observable
 
 Use synthetic invoices with known totals. Compare a vague prompt with explicit extraction rules on the same cases, then add schema constraints separately. Record parse failures and wrong values independently. Include a missing field and a refusal; repeat trials when sampling noise matters.

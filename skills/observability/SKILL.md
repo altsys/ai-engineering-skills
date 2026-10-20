@@ -33,6 +33,36 @@ Separate observed execution facts from quality judgments. Add the smallest trace
 
 Offer the smallest useful explanation, worked contrast, diagram, or source section for the observed gap. Then request a fresh attempt; do not count repetition after a hint as independent understanding.
 
+## Follow-up probes
+
+Use these when the opening probe is answered well or exposes a narrower confusion. Choose the one aimed at the learner's weakest unconfirmed claim; do not run them in order.
+
+1. A user reports a bad answer from yesterday. What must have been recorded for you to reproduce it?  
+   *Tests:* versions, inputs, and context provenance.
+2. Logging full prompts would make debugging easy. What does it cost, and what would you log instead?  
+   *Tests:* the privacy, retention, and cost tradeoff.
+3. You sample 1% of traces, and a failure affects 0.1% of requests. What do you expect to see, and what would you change?  
+   *Tests:* sampling and rare failures.
+
+## Common misconceptions
+
+Treat these as hypotheses to test, not labels to assign. Confirm with a probe before recording a misconception.
+
+| Learner says or does | Better model | What exposes it |
+| --- | --- | --- |
+| "Logging the final answer is enough." | Debugging needs inputs, context, versions, and tool events per step. | The reproduce-yesterday probe |
+| "Model latency is the latency." | End-to-end time includes queueing, retrieval, retries, and tools. | The opening probe |
+| "Observability tells me whether answers are good." | Traces record execution facts; quality needs labels or evals. | Ask what a trace cannot tell them |
+| "Log everything." | Volume has cost, privacy, and noise consequences. | The full-prompt probe |
+
+## What demonstrated looks like
+
+Record `demonstrated` for a narrow claim in this topic only when the learner, without step-by-step help:
+
+- designs a minimal trace that distinguishes competing explanations
+- reproduces a failure from recorded data
+- states what a trace cannot establish
+
 ## Make the model observable
 
 Instrument a local mocked retrieval-and-tool pipeline with correlation IDs, versions, durations, and retry events. Inject a slow retriever and a tool timeout separately. Diagnose from traces, then connect a bad answer to its context and configuration without logging raw sensitive content.

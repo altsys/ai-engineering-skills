@@ -33,6 +33,36 @@ Separate model execution time from service capacity and queueing. Use a bounded 
 
 Offer the smallest useful explanation, worked contrast, diagram, or source section for the observed gap. Then request a fresh attempt; do not count repetition after a hint as independent understanding.
 
+## Follow-up probes
+
+Use these when the opening probe is answered well or exposes a narrower confusion. Choose the one aimed at the learner's weakest unconfirmed claim; do not run them in order.
+
+1. The service has 8 concurrent slots, and each request takes 2 seconds. What happens at 5 requests per second?  
+   *Tests:* capacity arithmetic: 4 requests per second is the ceiling, so the queue grows without bound.
+2. A user closes the tab mid-generation. What should happen to the request, and why does it matter at scale?  
+   *Tests:* cancellation and wasted capacity.
+3. The new version passes all tests, but the canary shows a 2% rise in timeouts. Roll back or continue?  
+   *Tests:* rollout signals decided before release.
+
+## Common misconceptions
+
+Treat these as hypotheses to test, not labels to assign. Confirm with a probe before recording a misconception.
+
+| Learner says or does | Better model | What exposes it |
+| --- | --- | --- |
+| "Retries improve reliability under load." | Retries amplify overload unless budgeted and backed off. | The opening probe |
+| "Autoscaling handles bursts." | Scale-up lags, especially for GPU workloads; queues and backpressure are still needed. | Ask what happens in the first minute of a burst |
+| "Average latency describes the service." | Near capacity, queueing makes tail latency grow sharply. | The capacity probe |
+| "Deployed means done." | Releases need versioning, a canary, and rollback signals. | The canary probe |
+
+## What demonstrated looks like
+
+Record `demonstrated` for a narrow claim in this topic only when the learner, without step-by-step help:
+
+- does basic capacity arithmetic and predicts where queueing starts
+- specifies overload behavior (reject, shed, or degrade) explicitly
+- defines rollback signals before a rollout
+
 ## Make the model observable
 
 Load-test a local fake inference service with bounded concurrency. Increase arrival rate while measuring queue wait, tail latency, and rejections. Add deadlines and backpressure, then simulate a canary with a failing version and a rollback. Do not use production traffic.

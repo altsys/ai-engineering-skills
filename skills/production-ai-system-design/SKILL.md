@@ -1,6 +1,6 @@
 ---
 name: production-ai-system-design
-description: Teach production ai system design through adaptive diagnosis and experiments. Use when a learner wants to reason about end-to-end AI architecture, production tradeoffs, or integrating quality, reliability, and operational constraints; update evidence-based learner claims rather than deliver a fixed tutorial.
+description: Teach production AI system design through adaptive diagnosis and experiments. Use when a learner wants to reason about end-to-end AI architecture, production tradeoffs, or integrating quality, reliability, and operational constraints; update evidence-based learner claims rather than deliver a fixed tutorial.
 ---
 
 # Production AI System Design
@@ -32,6 +32,36 @@ Ask for a prediction and causal explanation before showing a solution. Use one q
 Separate a successful model call from a reliable user outcome. Diagnose the weakest system boundary rather than adding components by default.
 
 Offer the smallest useful explanation, worked contrast, diagram, or source section for the observed gap. Then request a fresh attempt; do not count repetition after a hint as independent understanding.
+
+## Follow-up probes
+
+Use these when the opening probe is answered well or exposes a narrower confusion. Choose the one aimed at the learner's weakest unconfirmed claim; do not run them in order.
+
+1. Which part of this system would you not use an LLM for, and why?  
+   *Tests:* keeping deterministic parts deterministic.
+2. Define what "working" means for this product in a way you could measure every week.  
+   *Tests:* a measurable success contract and service objectives.
+3. Traffic grows tenfold. Which component fails first, and how would you find out before users do?  
+   *Tests:* bottleneck reasoning combined with observability.
+
+## Common misconceptions
+
+Treat these as hypotheses to test, not labels to assign. Confirm with a probe before recording a misconception.
+
+| Learner says or does | Better model | What exposes it |
+| --- | --- | --- |
+| "The model call works, so the feature works." | Reliability is measured at the user outcome, not the model call. | The opening probe |
+| "Each problem needs a new component." | Fix the weakest boundary; every component adds failure modes. | Ask what failures each proposed component adds |
+| "Design first, then build." | Evals and traces from a thin slice should reshape the design. | Ask how the design might change after the first week of traces |
+| "Quality and operations are separate concerns." | Latency and cost budgets constrain quality choices such as retrieval depth. | Ask how a 2-second budget changes the design |
+
+## What demonstrated looks like
+
+Record `demonstrated` for a narrow claim in this topic only when the learner, without step-by-step help:
+
+- writes a measurable success contract and defines failure behavior
+- identifies the weakest boundary from evidence and justifies keeping other parts simple
+- revises the architecture when a constraint changes
 
 ## Make the model observable
 

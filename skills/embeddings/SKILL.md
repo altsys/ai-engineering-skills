@@ -33,6 +33,36 @@ Distinguish similarity from truth, relevance, and entailment. Use a small ranked
 
 Offer the smallest useful explanation, worked contrast, diagram, or source section for the observed gap. Then request a fresh attempt; do not count repetition after a hint as independent understanding.
 
+## Follow-up probes
+
+Use these when the opening probe is answered well or exposes a narrower confusion. Choose the one aimed at the learner's weakest unconfirmed claim; do not run them in order.
+
+1. A query for "error code E4012" returns documents about other error codes. Why might an embedding model do this, and what would you try?  
+   *Tests:* how dense representations treat rare identifiers, and when lexical matching is the better tool.
+2. You upgrade the embedding model and re-embed only new documents. What happens to search quality?  
+   *Tests:* vectors are only comparable within one model space.
+3. A query and a document have cosine similarity 0.82. Is that a good match?  
+   *Tests:* scores are relative within a model and corpus, not absolute thresholds.
+
+## Common misconceptions
+
+Treat these as hypotheses to test, not labels to assign. Confirm with a probe before recording a misconception.
+
+| Learner says or does | Better model | What exposes it |
+| --- | --- | --- |
+| "Similar embeddings mean the documents agree." | Similarity tracks topic and phrasing, not truth or entailment. | The opening contradiction probe |
+| "A threshold like 0.8 works for any model." | Score distributions differ by model and domain; calibrate on labeled pairs. | The 0.82 probe |
+| "Embeddings capture exact identifiers." | Dense models often blur rare tokens; lexical search handles exact matches. | The E4012 probe |
+| "Vectors with the same dimension can be compared." | Only vectors from the same model, version, and preprocessing share a space. | The model-upgrade probe |
+
+## What demonstrated looks like
+
+Record `demonstrated` for a narrow claim in this topic only when the learner, without step-by-step help:
+
+- predicts the rough ranking of paraphrase, contradiction, and keyword-overlap pairs before computing them
+- explains a bad nearest neighbor from what the model encodes
+- chooses between re-embedding, hybrid search, or a different model with a stated reason
+
 ## Make the model observable
 
 Create a small corpus with paraphrases, contradictions, exact identifiers, and unrelated text. Predict rankings, compute similarities with one embedding model, then inspect mistakes. Change normalization or query phrasing separately; never mix vectors from different model spaces.

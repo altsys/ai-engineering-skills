@@ -33,6 +33,36 @@ Separate model intent from application authority and external side effects. Draw
 
 Offer the smallest useful explanation, worked contrast, diagram, or source section for the observed gap. Then request a fresh attempt; do not count repetition after a hint as independent understanding.
 
+## Follow-up probes
+
+Use these when the opening probe is answered well or exposes a narrower confusion. Choose the one aimed at the learner's weakest unconfirmed claim; do not run them in order.
+
+1. The model calls `get_weather(city="Paris")`, but the user meant Paris, Texas. Whose responsibility is that, and what can the application do?  
+   *Tests:* ambiguous arguments, validation, and asking for clarification.
+2. A tool returns an error as text, and the model then tells the user the action succeeded. Why might that happen, and how would you detect it?  
+   *Tests:* tool results are model input; ground truth lives in system records.
+3. The model chains three read calls and then a write. Which calls need authorization checks, and where are they enforced?  
+   *Tests:* authorization enforced at execution, not requested in the prompt.
+
+## Common misconceptions
+
+Treat these as hypotheses to test, not labels to assign. Confirm with a probe before recording a misconception.
+
+| Learner says or does | Better model | What exposes it |
+| --- | --- | --- |
+| "The model runs the tool." | The model proposes a call; the application decides whether to execute it. | The opening probe |
+| "Arguments that match the schema are safe." | A schema checks shape; authorization and business rules are separate checks. | Ask what a valid but unauthorized call looks like |
+| "Retrying a timed-out call is safe." | A timeout is an unknown outcome; writes need idempotency. | The duplicate-refund probe |
+| "The assistant's final message tells me what happened." | Check recorded effects and tool logs, not assistant wording. | The error-as-text probe |
+
+## What demonstrated looks like
+
+Record `demonstrated` for a narrow claim in this topic only when the learner, without step-by-step help:
+
+- draws the proposal, validation, execution, and result boundary for a new tool
+- designs idempotent handling of unknown outcomes
+- verifies outcomes from system records rather than assistant text
+
 ## Make the model observable
 
 Use a local fake refund tool with no external effects. Inject invalid arguments, a denied request, and a timeout after a successful write. Predict outcomes, then add validation and an idempotency key; inspect recorded effects rather than assistant wording.

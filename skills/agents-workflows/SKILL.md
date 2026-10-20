@@ -33,6 +33,36 @@ Distinguish control-flow flexibility from competence. Begin with a deterministic
 
 Offer the smallest useful explanation, worked contrast, diagram, or source section for the observed gap. Then request a fresh attempt; do not count repetition after a hint as independent understanding.
 
+## Follow-up probes
+
+Use these when the opening probe is answered well or exposes a narrower confusion. Choose the one aimed at the learner's weakest unconfirmed claim; do not run them in order.
+
+1. An agent repeats the same search five times with slightly different wording and exhausts its budget. What signals could stop it earlier?  
+   *Tests:* stop conditions and detecting lack of progress.
+2. For this task, which steps would you make fixed code and which would you leave to the model? Justify each.  
+   *Tests:* where model decisions add value and where they only add risk.
+3. The agent's context grows with every tool result. What breaks first as tasks get longer, and how would you manage state?  
+   *Tests:* state management and context limits.
+
+## Common misconceptions
+
+Treat these as hypotheses to test, not labels to assign. Confirm with a probe before recording a misconception.
+
+| Learner says or does | Better model | What exposes it |
+| --- | --- | --- |
+| "An agent is a smarter workflow." | An agent loop adds flexibility, not competence, and brings new failure modes. | The opening probe |
+| "Give the agent more tools and it will figure it out." | More overlapping choices raise wrong-tool and cost risk. | Ask them to predict the effect of adding ten similar tools |
+| "The agent will stop when it is done." | Stopping needs explicit conditions and budgets. | The repeated-search probe |
+| "A plan made upfront makes the agent reliable." | Plans go stale when tool results surprise; replanning and checkpoints are needed. | Ask what happens when step 2 returns something unexpected |
+
+## What demonstrated looks like
+
+Record `demonstrated` for a narrow claim in this topic only when the learner, without step-by-step help:
+
+- chooses a fixed workflow or an agent loop for a task, with stated reasons
+- specifies budgets, stop conditions, and recovery points
+- reads a trace and identifies the step where control went wrong
+
 ## Make the model observable
 
 Simulate a research task using local canned tool responses. Compare a fixed workflow with a bounded agent loop on a normal case, an empty search, and a repeating result. Track task success, calls, state transitions, and stop reasons under the same budget.

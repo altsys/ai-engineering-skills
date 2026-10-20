@@ -33,6 +33,36 @@ Separate development feedback from held-out evidence and proxy scores from user 
 
 Offer the smallest useful explanation, worked contrast, diagram, or source section for the observed gap. Then request a fresh attempt; do not count repetition after a hint as independent understanding.
 
+## Follow-up probes
+
+Use these when the opening probe is answered well or exposes a narrower confusion. Choose the one aimed at the learner's weakest unconfirmed claim; do not run them in order.
+
+1. Two raters disagree on 30% of labels. What does that tell you before you compare any prompts?  
+   *Tests:* rubric ambiguity as a measurement problem.
+2. An LLM judge prefers the longer of two answers 80% of the time. How would you check whether that is judge bias or real quality?  
+   *Tests:* judge calibration against human labels.
+3. Variant B improves the mean by 2 points on 40 examples. What would make you trust or distrust that result?  
+   *Tests:* noise, run-to-run variance, slices, and uncertainty.
+
+## Common misconceptions
+
+Treat these as hypotheses to test, not labels to assign. Confirm with a probe before recording a misconception.
+
+| Learner says or does | Better model | What exposes it |
+| --- | --- | --- |
+| "The score went up, so it is better." | Scores on development cases overfit; held-out evidence is needed. | The opening probe |
+| "An LLM judge is objective." | Judges have biases such as length and position preference; calibrate them. | The judge-length probe |
+| "More test cases will fix a weak eval." | An unclear rubric or unrepresentative cases scale the problem. | The rater-disagreement probe |
+| "The average score is what matters." | Rare critical failures can hide behind a good mean. | The transfer task below |
+
+## What demonstrated looks like
+
+Record `demonstrated` for a narrow claim in this topic only when the learner, without step-by-step help:
+
+- writes a task contract and rubric that two people can apply consistently
+- separates development cases from held-out cases and states uncertainty
+- makes a release decision that weighs slice failures, not only the mean
+
 ## Make the model observable
 
 Create a small synthetic dataset with normal, edge, and adversarial cases. Split development and held-out cases before tuning. Compare two variants using blind labels and explicit criteria; inspect disagreements and per-slice results instead of only the mean. Treat a tiny set as exploratory.

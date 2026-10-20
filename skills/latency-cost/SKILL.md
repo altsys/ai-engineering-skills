@@ -33,6 +33,36 @@ Separate perceived responsiveness, total work, throughput, and cost per successf
 
 Offer the smallest useful explanation, worked contrast, diagram, or source section for the observed gap. Then request a fresh attempt; do not count repetition after a hint as independent understanding.
 
+## Follow-up probes
+
+Use these when the opening probe is answered well or exposes a narrower confusion. Choose the one aimed at the learner's weakest unconfirmed claim; do not run them in order.
+
+1. Doubling the input context barely changes latency, but doubling the output length nearly doubles it. Why?  
+   *Tests:* input is processed in a parallel prefill pass while output tokens are generated one at a time.
+2. Cost per request dropped 40% after switching to a smaller model, but cost per resolved ticket went up. How?  
+   *Tests:* cost per successful task rather than per call.
+3. Prompt caching is enabled, but the hit rate is near zero. What about the prompt structure could cause that?  
+   *Tests:* caches reuse a stable prefix, so ordering matters.
+
+## Common misconceptions
+
+Treat these as hypotheses to test, not labels to assign. Confirm with a probe before recording a misconception.
+
+| Learner says or does | Better model | What exposes it |
+| --- | --- | --- |
+| "Streaming makes responses faster." | It improves time to first token, not completion time or cost. | The opening probe |
+| "Every token costs the same time." | Output length usually dominates generation time. | The context-versus-output probe |
+| "A cheaper model makes the system cheaper." | Failures, retries, and escalations can cost more than the savings. | The cost-per-ticket probe |
+| "Optimize the average." | Tail latency drives user experience and timeouts. | Ask what p95 shows that the mean hides |
+
+## What demonstrated looks like
+
+Record `demonstrated` for a narrow claim in this topic only when the learner, without step-by-step help:
+
+- decomposes a latency measurement into stages before optimizing
+- predicts which change (shorter output, caching, smaller model) moves which metric
+- reports cost per successful task under a stated quality floor
+
 ## Make the model observable
 
 Use a local latency simulator or a small approved API budget. Vary output length, context length, and concurrency separately. Measure first-token and completion latency, tail behavior, and usage. Compare one optimization against the same task-quality checks; label simulated values explicitly.
