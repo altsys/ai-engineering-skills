@@ -46,7 +46,7 @@ The record separates what the learner demonstrated from what the coach suspects.
 
 For example, explaining temperature after a hint suggests developing understanding. Independently using a token distribution to predict its effect demonstrates that specific distinction; applying it to factual reliability may still need a fresh probe.
 
-At session boundaries, the assistant saves a compact checkpoint to available private learner-controlled storage or provides one to carry into the next conversation. The repository includes a private local checkpoint store for assistants with a persistent Linux/macOS filesystem; it does not supply hosted storage or guarantee assistant memory. Real learner records do not belong in this public repository.
+The assistant saves the record to private learner-controlled storage after each meaningful update, not only when a session ends, and provides a copyable checkpoint whenever no verified save is possible. The repository includes a private local checkpoint store for assistants with a persistent Linux/macOS filesystem; it does not supply hosted storage or guarantee assistant memory. Real learner records do not belong in this public repository.
 
 ## Reliable progress storage
 

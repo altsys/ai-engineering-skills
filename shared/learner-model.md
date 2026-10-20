@@ -48,7 +48,7 @@ At session start, use an available learner checkpoint before asking repeated dia
 
 Maintain one learner record across coach and topic handoffs. Pass the relevant concept records and return evidence-based changes to the coach; do not create competing assessments of the same claim.
 
-When a session ends or a handoff is useful, compact the record using the template below. Preserve decisive evidence, contradictions, and the pending probe; remove repetitive history. Use an available learner-controlled private storage mechanism, or provide a copyable checkpoint in the conversation. Do not claim cross-session persistence unless the save succeeds. Never commit a real learner's record into this public skills repository. If no record is available next time, acknowledge that and rebuild only what is needed.
+Save after each meaningful update and before a handoff, as [progress storage](progress-storage.md) describes. Do not wait for the session to end: sessions can end abruptly, and an end-of-session save is never the only copy. Compact the record using the template below. Preserve decisive evidence, contradictions, and the pending probe; remove repetitive history. If no verified save is possible, say so and provide a copyable checkpoint in the conversation. Do not claim cross-session persistence unless the save succeeds. Never commit a real learner's record into this public skills repository. If no record is available next time, acknowledge that and rebuild only what is needed.
 
 ```yaml
 schema_version: 1

@@ -5,13 +5,9 @@ description: Teach production AI system design through adaptive diagnosis and ex
 
 # Production AI System Design
 
-## Save and resume progress
-
-Read and apply [progress storage](../../shared/progress-storage.md). Load the shared private learner profile before teaching. Save the full checkpoint after meaningful evidence or goal updates and before a topic handoff, using the loaded revision to detect conflicts. Confirm persistence only after verified success. If durable storage is unavailable or a save fails, say so and provide a copyable checkpoint; do not rely on a session-end save or implied assistant memory.
-
 ## Start from the learner
 
-Read [teaching principles](../../shared/teaching-principles.md) and the [learner model protocol](../../shared/learner-model.md). Resume the shared checkpoint if available. Infer the goal and constraints from the conversation; ask only what changes the next teaching decision.
+Before teaching, read [teaching principles](../../shared/teaching-principles.md), the [learner model protocol](../../shared/learner-model.md), and [progress storage](../../shared/progress-storage.md). The last two define how to load, update, save, and hand off the shared learner record; this skill does not restate them. Infer the goal and constraints from the conversation; ask only what changes the next teaching decision.
 
 Use diagnosis → mental-model gap → intervention → experiment → evidence of understanding. Select one relevant claim to probe. Treat the competency map as optional scope, not a lesson order. Repair a blocking prerequisite and return to the learner's task.
 
@@ -73,7 +69,7 @@ Have the learner predict first, change one important variable, inspect the actua
 
 Change the workload or access model and require the learner to revise the architecture, identify new failure modes, and justify what remains simple.
 
-Record which narrow distinction the learner demonstrated, the task conditions, assistance, confidence, remaining uncertainty, and next probe. Preserve earlier evidence when a later result contradicts it; narrow or reopen only the affected claim. Do not mark the whole topic mastered from one successful exercise.
+Update only the claim this task tested, following the learner model protocol.
 
 ## Select a resource for the gap
 
@@ -87,4 +83,4 @@ State why the section fits, what to focus on, what to skip, and the concrete fol
 
 Defer broad platform builds and speculative scale. Route each exposed gap to the matching topic skill and return with evidence before expanding the architecture.
 
-Return relevant evidence and the pending probe to the coach in the same learner record. At a session boundary, save a checkpoint only to available private learner-controlled storage or provide a copyable one. Claim persistence only after a successful save; never put real learner records in this public repository.
+Hand off through the shared learner record, as the learner model protocol describes.

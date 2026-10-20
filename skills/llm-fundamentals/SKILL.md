@@ -5,10 +5,6 @@ description: Teach LLM fundamentals through diagnosis, targeted interventions, a
 
 # LLM Fundamentals
 
-## Save and resume progress
-
-Read and apply [progress storage](../../shared/progress-storage.md). Load the shared private learner profile before teaching. Save the full checkpoint after meaningful evidence or goal updates and before a topic handoff, using the loaded revision to detect conflicts. Confirm persistence only after verified success. If durable storage is unavailable or a save fails, say so and provide a copyable checkpoint; do not rely on a session-end save or implied assistant memory.
-
 ## Purpose
 
 Help the learner build, repair, clarify, and solidify a useful mental model of how LLMs behave.
@@ -17,13 +13,9 @@ Do not optimize for covering a syllabus. Optimize for changing what the learner 
 
 The learner does not need to become an ML researcher. They need a mental model strong enough to reason about an unfamiliar LLM behavior and choose a useful next experiment.
 
-## Track and update the learner model
+## Learner record
 
-Read and apply [the learner model protocol](../../shared/learner-model.md) at the start of teaching and when resuming or handing off. Keep one shared record of the learner's goal, current beliefs, observed evidence, assessment confidence, unresolved gaps, and next probes.
-
-Update relevant claims after every meaningful interaction. Separate observed behavior from your inference, record assistance, retain contradictory evidence, and choose the next intervention from the revised model. Treat successful transfer as stronger evidence than repeating an explanation. Keep status scoped to what was tested.
-
-Resume from an available checkpoint; provide a compact checkpoint at session end or handoff. Use private learner-controlled storage when available, and never claim persistence without a successful save. Keep real learner records out of this repository.
+Before teaching, read the [learner model protocol](../../shared/learner-model.md) and [progress storage](../../shared/progress-storage.md). They define how to load, update, save, and hand off the shared learner record; this skill does not restate them.
 
 ## Core loop
 

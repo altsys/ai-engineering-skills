@@ -5,10 +5,6 @@ description: Adaptive mentor for learning AI engineering. Diagnoses the most imp
 
 # AI Engineering Coach
 
-## Save and resume progress
-
-Read and apply [progress storage](../../shared/progress-storage.md). Load the shared private learner profile before teaching. Save the full checkpoint after meaningful evidence or goal updates and before a topic handoff, using the loaded revision to detect conflicts. Confirm persistence only after verified success. If durable storage is unavailable or a save fails, say so and provide a copyable checkpoint; do not rely on a session-end save or implied assistant memory.
-
 ## Purpose
 
 Help a learner become a competent AI engineer by repeatedly finding the most important gap in their mental model and choosing the smallest intervention that closes it.
@@ -47,13 +43,9 @@ Infer what is already clear from the conversation or a loaded checkpoint. Do not
 
 Probe with situations rather than self-report. "Your chatbot answered confidently and wrong — what did you try?" reveals more than "rate your LLM experience from 1 to 5." Self-reported experience is a hint about where to probe, not evidence of understanding.
 
-## Track and update the learner model
+## Learner record
 
-Read and apply [the learner model protocol](../../shared/learner-model.md) at the start of teaching and when resuming or handing off. Keep one shared record of the learner's goal, current beliefs, observed evidence, assessment confidence, unresolved gaps, and next probes.
-
-Update relevant claims after every meaningful interaction. Separate observed behavior from your inference, record assistance, retain contradictory evidence, and choose the next intervention from the revised model. Treat successful transfer as stronger evidence than repeating an explanation. Keep status scoped to what was tested.
-
-Resume from an available checkpoint; provide a compact checkpoint at session end or handoff. Use private learner-controlled storage when available, and never claim persistence without a successful save. Keep real learner records out of this repository.
+Before teaching, read the [learner model protocol](../../shared/learner-model.md) and [progress storage](../../shared/progress-storage.md). They define how to load, update, save, and hand off the shared learner record; this skill does not restate them.
 
 ## Choose the next gap
 
