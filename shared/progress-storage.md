@@ -4,7 +4,9 @@ Use one private profile across the coach and all topics. Keep the evidence rules
 
 ## Choose storage once
 
-For an assistant with Python and a persistent Linux/macOS filesystem, use `scripts/learner_progress.py` from the repository root. It requires only the Python standard library. Use the default root `~/.local/share/ai-engineering-skills/progress`, or set `AI_ENGINEERING_PROGRESS_DIR` to a private persistent directory outside every Git checkout. The store rejects a root inside a Git checkout.
+For an assistant with Python and a persistent Linux/macOS filesystem, use `scripts/learner_progress.py`. It requires only the Python standard library. Locate it from the files you are following, not from the current directory: it is `../scripts/learner_progress.py` relative to this file and `../../scripts/learner_progress.py` relative to any skill's `SKILL.md`. The commands below write the repository root (the directory containing `shared/`, `skills/`, and `scripts/`) as `$SKILLS_REPO`; set it in the same command or substitute the absolute path.
+
+Use the default root `~/.local/share/ai-engineering-skills/progress`, or set `AI_ENGINEERING_PROGRESS_DIR` to a private persistent directory outside every Git checkout. The store rejects a root inside a Git checkout, because records there could be committed. If the home directory itself is a Git checkout (for example, dotfiles kept in Git), the default root is rejected too; the error names the checkout, and the learner should choose a private directory outside it rather than ignoring the store's files in that repository.
 
 Use a stable learner-selected profile ID. In a private single-user environment, `default` is suitable; in a shared environment, establish the correct profile before reading any progress. Never derive an ID from an email address or use one profile for multiple learners. Reuse the same root and profile across topics and sessions.
 
@@ -17,7 +19,7 @@ Check whether the filesystem survives the session. A successful write proves loc
 Run:
 
 ```bash
-python3 scripts/learner_progress.py --profile default load
+python3 "$SKILLS_REPO/scripts/learner_progress.py" --profile default load
 ```
 
 The result contains `revision` and `checkpoint`. Revision 0 with a null checkpoint means no record exists for this profile. Retain the revision for the next save. Read the goal, constraints, evidence, and pending probe before diagnosing again. An invalid store is an error, not a new learner: preserve the file and report the problem rather than resetting it.
@@ -29,7 +31,7 @@ Save after each meaningful learner-model update, a goal/constraint change, and b
 Serialize the complete shared checkpoint as JSON with the same fields and schema version as the YAML template in `learner-model.md`. Preserve relevant concepts and evidence from other topics; the input replaces the complete current checkpoint. Do not include transcripts, secrets, or unrelated personal information. Use standard input rather than writing a temporary learner file into the repository:
 
 ```bash
-python3 scripts/learner_progress.py --profile default save --expected-revision 0 < /private/path/checkpoint.json
+python3 "$SKILLS_REPO/scripts/learner_progress.py" --profile default save --expected-revision 0 < /private/path/checkpoint.json
 ```
 
 The redirect above illustrates a private input file; assistants may supply JSON directly through process standard input. Replace `0` with the revision actually loaded. Never put checkpoint content in shell arguments or interpolate it as shell code. The checkpoint must include `schema_version`, `updated`, `goal`, `constraints`, `active_topic`, `concepts`, and `next_action`. Include evidence for assessed concepts.
@@ -41,8 +43,8 @@ On a revision conflict, reload the current checkpoint, reconcile the new evidenc
 ## Inspect and recover
 
 ```bash
-python3 scripts/learner_progress.py --profile default history
-python3 scripts/learner_progress.py --profile default restore --revision 2 --expected-revision 5
+python3 "$SKILLS_REPO/scripts/learner_progress.py" --profile default history
+python3 "$SKILLS_REPO/scripts/learner_progress.py" --profile default restore --revision 2 --expected-revision 5
 ```
 
 History lists saved revision metadata. Restore appends the chosen checkpoint as a new revision; it does not erase later history. Use the actual revision numbers from load/history. For example, the command above restores revision 2 as revision 6 when the current revision is 5. Set a fresh `updated` reference on the next learning update; restoring does not make old evidence fresh.

@@ -56,8 +56,11 @@ class Store:
         if raw.is_symlink():
             raise ProgressError('Progress root must not be a symbolic link.')
         self.root = raw.resolve()
-        if any((p / '.git').exists() for p in (self.root, *self.root.parents)):
-            raise ProgressError('Progress storage must be outside any Git checkout.')
+        checkout = next((p for p in (self.root, *self.root.parents) if (p / '.git').exists()), None)
+        if checkout is not None:
+            # A home directory kept in Git (dotfiles) also contains the default root.
+            raise ProgressError(f'Progress storage must be outside any Git checkout, but {self.root} is inside {checkout}. '
+                                'Set AI_ENGINEERING_PROGRESS_DIR or --root to a private directory outside it.')
         self.directory = self.root / profile
         self.path = self.directory / 'progress.json'
 

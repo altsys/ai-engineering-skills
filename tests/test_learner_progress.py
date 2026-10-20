@@ -93,6 +93,21 @@ class ProgressTests(unittest.TestCase):
         with self.assertRaises(progress.ProgressError):
             progress.Store(repo / 'progress', 'learner')
 
+    def test_home_checkout_error_names_checkout_and_remedy(self):
+        home = Path(self.temp.name) / 'home'
+        (home / '.git').mkdir(parents=True)
+        with self.assertRaises(progress.ProgressError) as raised:
+            progress.Store(home / '.local/share/ai-engineering-skills/progress', 'learner')
+        self.assertIn(str(home.resolve()), str(raised.exception))
+        self.assertIn('AI_ENGINEERING_PROGRESS_DIR', str(raised.exception))
+
+    def test_cli_runs_from_any_working_directory(self):
+        elsewhere = Path(self.temp.name) / 'elsewhere'
+        elsewhere.mkdir()
+        command = [sys.executable, str(SCRIPT), '--root', str(self.root), '--profile', 'learner-a', 'load']
+        loaded = subprocess.run(command, cwd=elsewhere, capture_output=True, text=True, check=True)
+        self.assertEqual(json.loads(loaded.stdout)['revision'], 0)
+
     def test_cli_reports_verified_save_and_load(self):
         command = [sys.executable, str(SCRIPT), '--root', str(self.root), '--profile', 'learner-a']
         saved = subprocess.run(command + ['save', '--expected-revision', '0'], input=json.dumps(checkpoint()), capture_output=True, text=True, check=True)

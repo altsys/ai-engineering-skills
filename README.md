@@ -53,6 +53,7 @@ The assistant saves the record to private learner-controlled storage after each 
 The [storage protocol](shared/progress-storage.md) connects every skill to a shared private profile. The Python store validates checkpoints, saves atomically, detects conflicting updates, verifies saves, and retains revisions for recovery. Save after meaningful updates so an unexpected session ending does not discard the whole session.
 
 ```bash
+# From the repository root; skills locate the script relative to their own files.
 python3 scripts/learner_progress.py --profile default load
 ```
 
