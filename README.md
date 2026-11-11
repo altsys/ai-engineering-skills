@@ -19,16 +19,17 @@ Then start your agent and ask:
 
 > Use the ai-engineering-coach skill. Help me understand why LLMs hallucinate. Diagnose my current mental model before explaining anything, and give me a small experiment.
 
-**Important packaging limitation:** The topic skills currently link to files outside their own folders (`../../shared/`, `../../resources/`, and the progress script under `../../scripts/`). Some skill installers copy *only* selected skill directories, so these links may not resolve in the installed copy. The commands above make skills discoverable, but **a standalone installation is not yet guaranteed to function fully**. Until this is fixed, run from a full clone or use an agent with access to the whole repository. Do not assume progress persistence works just because the skill appears in an agent's skill list.
+****Standalone packaging:** Each skill now bundles its own `shared/`, `resources/`, and `scripts/learner_progress.py`, so the installed folder does not depend on files outside itself. The coach also bundles the topic instructions it routes to. Bundled assets are source copies; when changing shared protocols, update all bundled copies too. Automated checks validate local links and required files.
 
 To validate the source repository:
 
 ```bash
 python3 -m unittest discover -s tests -v
+python3 scripts/check_skill_install.py
 python3 scripts/learner_progress.py --profile default load
 ```
 
-To validate an installed skill, ask the agent to open its referenced learner-model and progress-storage files, then complete a learning session, verify a saved checkpoint, restart the agent, and resume. A missing shared file or script is an installation failure, not a passing smoke test.
+To validate an installed skill, ask the agent to open its referenced learner-model and progress-storage files, then complete a learning session, verify a saved checkpoint, restart the agent, and resume. A missing shared file or script is an installation failure, not a passing smoke test. CI also checks a standalone copy of the coach.
 
 For updates, use the `skills` CLI's supported update workflow; the exact behavior depends on the CLI version. Review third-party skill instructions before installing them.
 

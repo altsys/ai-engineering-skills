@@ -7,7 +7,7 @@ description: Guide adaptive AI engineering learning across topics. Use when a le
 
 ## Save and resume progress
 
-Read and apply [progress storage](../../shared/progress-storage.md). Load the shared private learner profile before teaching. Save the full checkpoint after meaningful evidence or goal updates and before a topic handoff, using the loaded revision to detect conflicts. Confirm persistence only after verified success. If durable storage is unavailable or a save fails, say so and provide a copyable checkpoint; do not rely on a session-end save or implied assistant memory.
+For standalone installation, the bundled storage script is at `scripts/learner_progress.py` relative to this skill directory; run it using its absolute path. All `shared/` and `resources/` paths below are relative to this skill directory. Read and apply [progress storage](shared/progress-storage.md). Load the shared private learner profile before teaching. Save the full checkpoint after meaningful evidence or goal updates and before a topic handoff, using the loaded revision to detect conflicts. Confirm persistence only after verified success. If durable storage is unavailable or a save fails, say so and provide a copyable checkpoint; do not rely on a session-end save or implied assistant memory.
 
 ## Purpose
 
@@ -32,7 +32,7 @@ Do not ask every question mechanically. Infer what is already clear and ask only
 
 ## Track and update the learner model
 
-Read and apply [the learner model protocol](../../shared/learner-model.md) at the start of teaching and when resuming or handing off. Keep one shared record of the learner's goal, current beliefs, observed evidence, assessment confidence, unresolved gaps, and next probes.
+Read and apply [the learner model protocol](shared/learner-model.md) at the start of teaching and when resuming or handing off. Keep one shared record of the learner's goal, current beliefs, observed evidence, assessment confidence, unresolved gaps, and next probes.
 
 Update relevant claims after every meaningful interaction. Separate observed behavior from your inference, record assistance, retain contradictory evidence, and choose the next intervention from the revised model. Treat successful transfer as stronger evidence than repeating an explanation. Keep status scoped to what was tested.
 
@@ -53,20 +53,20 @@ Resume from an available checkpoint; provide a compact checkpoint at session end
 
 Use this as a map, not a rigid sequence.
 
-- [LLM fundamentals](../llm-fundamentals/SKILL.md)
-- [Prompting and Structured Outputs](../prompting-structured-outputs/SKILL.md)
-- [Embeddings](../embeddings/SKILL.md)
-- [Retrieval](../retrieval/SKILL.md)
-- [Retrieval-Augmented Generation](../rag/SKILL.md)
-- [Tool Calling](../tool-calling/SKILL.md)
-- [Agents and Workflows](../agents-workflows/SKILL.md)
-- [Evaluations](../evals/SKILL.md)
-- [Observability](../observability/SKILL.md)
-- [Latency and Cost](../latency-cost/SKILL.md)
-- [Model Selection](../model-selection/SKILL.md)
-- [Serving and Deployment](../serving-deployment/SKILL.md)
-- [Safety and Failure Handling](../safety-failure-handling/SKILL.md)
-- [Production AI System Design](../production-ai-system-design/SKILL.md)
+- [LLM fundamentals](topics/llm-fundamentals/SKILL.md)
+- [Prompting and Structured Outputs](topics/prompting-structured-outputs/SKILL.md)
+- [Embeddings](topics/embeddings/SKILL.md)
+- [Retrieval](topics/retrieval/SKILL.md)
+- [Retrieval-Augmented Generation](topics/rag/SKILL.md)
+- [Tool Calling](topics/tool-calling/SKILL.md)
+- [Agents and Workflows](topics/agents-workflows/SKILL.md)
+- [Evaluations](topics/evals/SKILL.md)
+- [Observability](topics/observability/SKILL.md)
+- [Latency and Cost](topics/latency-cost/SKILL.md)
+- [Model Selection](topics/model-selection/SKILL.md)
+- [Serving and Deployment](topics/serving-deployment/SKILL.md)
+- [Safety and Failure Handling](topics/safety-failure-handling/SKILL.md)
+- [Production AI System Design](topics/production-ai-system-design/SKILL.md)
 
 Route by the diagnosed gap, not list order. Pass the learner goal, relevant concept records, evidence, and pending probe. Read the selected skill before teaching; return its evidence to the same record.
 
