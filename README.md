@@ -1,5 +1,39 @@
 # AI Engineering Skills
 
+## Quick start: install as agent skills
+
+Requires Node.js/npm and a supported coding agent (such as Codex or Claude Code). You do **not** need to install the `skills` CLI globally: `npx` downloads and runs it on demand.
+
+```bash
+# See the skills available in this repository
+npx skills add altsys/ai-engineering-skills --list
+
+# Install interactively (choose skills and target agent)
+npx skills add altsys/ai-engineering-skills
+
+# Example: install the coach globally for Codex
+npx skills add altsys/ai-engineering-skills --skill ai-engineering-coach -a codex -g
+```
+
+Then start your agent and ask:
+
+> Use the ai-engineering-coach skill. Help me understand why LLMs hallucinate. Diagnose my current mental model before explaining anything, and give me a small experiment.
+
+****Standalone packaging:** Each skill now bundles its own `shared/`, `resources/`, and `scripts/learner_progress.py`, so the installed folder does not depend on files outside itself. The coach also bundles the topic instructions it routes to. Bundled assets are source copies; when changing shared protocols, update all bundled copies too. Automated checks validate local links and required files.
+
+To validate the source repository:
+
+```bash
+python3 -m unittest discover -s tests -v
+python3 scripts/check_skill_install.py
+python3 scripts/learner_progress.py --profile default load
+```
+
+To validate an installed skill, ask the agent to open its referenced learner-model and progress-storage files, then complete a learning session, verify a saved checkpoint, restart the agent, and resume. A missing shared file or script is an installation failure, not a passing smoke test. CI also checks a standalone copy of the coach.
+
+For updates, use the `skills` CLI's supported update workflow; the exact behavior depends on the CLI version. Review third-party skill instructions before installing them.
+
+
 An executable curriculum for learning AI engineering with an AI assistant.
 
 This repository is not a tutorial, textbook, or "awesome list." It contains teaching skills whose job is to understand a learner's current mental model and help expand, repair, clarify, and solidify it.

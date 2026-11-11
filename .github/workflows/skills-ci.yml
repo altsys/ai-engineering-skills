@@ -1,0 +1,31 @@
+name: Validate agent skills
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run unit tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Verify all installed skills are self-contained
+        run: |
+          python3 scripts/check_skill_install.py
+          for skill in skills/*; do
+            if [ -f "$skill/SKILL.md" ]; then
+              test -f "$skill/scripts/learner_progress.py"
+              test -f "$skill/shared/progress-storage.md"
+              test -f "$skill/shared/learner-model.md"
+              test -f "$skill/resources/catalog.md"
+            fi
+          done
+      - name: Verify isolated coach install
+        run: |
+          mkdir -p /tmp/agent-skills-test
+          cp -R skills/ai-engineering-coach /tmp/agent-skills-test/
+          python3 scripts/check_skill_install.py /tmp/agent-skills-test
+          python3 /tmp/agent-skills-test/ai-engineering-coach/scripts/learner_progress.py --profile ci-smoke load

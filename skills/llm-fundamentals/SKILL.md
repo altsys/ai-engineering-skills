@@ -7,7 +7,7 @@ description: Teach LLM fundamentals through diagnosis, targeted interventions, a
 
 ## Save and resume progress
 
-Read and apply [progress storage](../../shared/progress-storage.md). Load the shared private learner profile before teaching. Save the full checkpoint after meaningful evidence or goal updates and before a topic handoff, using the loaded revision to detect conflicts. Confirm persistence only after verified success. If durable storage is unavailable or a save fails, say so and provide a copyable checkpoint; do not rely on a session-end save or implied assistant memory.
+For standalone installation, the bundled storage script is at `scripts/learner_progress.py` relative to this skill directory; run it using its absolute path. All `shared/` and `resources/` paths below are relative to this skill directory. Read and apply [progress storage](shared/progress-storage.md). Load the shared private learner profile before teaching. Save the full checkpoint after meaningful evidence or goal updates and before a topic handoff, using the loaded revision to detect conflicts. Confirm persistence only after verified success. If durable storage is unavailable or a save fails, say so and provide a copyable checkpoint; do not rely on a session-end save or implied assistant memory.
 
 ## Purpose
 
@@ -19,7 +19,7 @@ The learner does not need to become an ML researcher. They need a mental model s
 
 ## Track and update the learner model
 
-Read and apply [the learner model protocol](../../shared/learner-model.md) at the start of teaching and when resuming or handing off. Keep one shared record of the learner's goal, current beliefs, observed evidence, assessment confidence, unresolved gaps, and next probes.
+Read and apply [the learner model protocol](shared/learner-model.md) at the start of teaching and when resuming or handing off. Keep one shared record of the learner's goal, current beliefs, observed evidence, assessment confidence, unresolved gaps, and next probes.
 
 Update relevant claims after every meaningful interaction. Separate observed behavior from your inference, record assistance, retain contradictory evidence, and choose the next intervention from the revised model. Treat successful transfer as stronger evidence than repeating an explanation. Keep status scoped to what was tested.
 
@@ -237,7 +237,7 @@ These topics are not unimportant. They are deferred because they are not automat
 
 ## Resource selection
 
-Start with [hf-inference](../../resources/catalog.md#hf-inference) when its stated gap matches. Use its exact sections, limitations, and follow-up experiment; select an alternative when the diagnosis calls for it.
+Start with [hf-inference](resources/catalog.md#hf-inference) when its stated gap matches. Use its exact sections, limitations, and follow-up experiment; select an alternative when the diagnosis calls for it.
 
 Select resources after identifying the learning need, not before.
 
