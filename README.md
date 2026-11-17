@@ -1,5 +1,7 @@
 # AI Engineering Skills
 
+Project overview: [https://hawando.com/projects/ai-engineering-skills](https://hawando.com/projects/ai-engineering-skills)
+
 ## Quick start: install as agent skills
 
 Requires Node.js/npm and a supported coding agent (such as Codex or Claude Code). You do **not** need to install the `skills` CLI globally: `npx` downloads and runs it on demand.
