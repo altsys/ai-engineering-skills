@@ -16,16 +16,32 @@ skills = sorted(p for p in root.iterdir() if p.is_dir() and (p / "SKILL.md").is_
 if not skills:
     raise SystemExit(f"No SKILL.md files found in {root}")
 failures = []
+if len(sys.argv) == 1:
+    expected = {
+        "ai-engineering-coach",
+        "ai-engineering-foundations",
+        "ai-engineering-knowledge-systems",
+        "ai-engineering-agents",
+        "ai-engineering-production",
+    }
+    actual = {skill.name for skill in skills}
+    if actual != expected:
+        failures.append(f"Expected five grouped skills; found {sorted(actual)}")
 for skill in skills:
     doc = skill / "SKILL.md"
     data = doc.read_text(encoding="utf-8")
     if not data.startswith("---\n") or not re.search(r"(?m)^name:\s*\S+", data) or not re.search(r"(?m)^description:\s*\S+", data):
         failures.append(f"{skill.name}: missing YAML name/description")
-    for target in re.findall(r"\]\(([^)#]+)(?:#[^)]*)?\)", data):
-        if "://" in target or target.startswith("#"):
-            continue
-        if not (skill / target).resolve().exists():
-            failures.append(f"{skill.name}: missing linked file {target}")
+    for nested in skill.rglob("SKILL.md"):
+        if nested != doc:
+            failures.append(f"{skill.name}: nested skill would appear separately: {nested.relative_to(skill)}")
+    for page in skill.rglob("*.md"):
+        data = page.read_text(encoding="utf-8")
+        for target in re.findall(r"\]\(([^)#]+)(?:#[^)]*)?\)", data):
+            if "://" in target or target.startswith("#"):
+                continue
+            if not (page.parent / target).resolve().exists():
+                failures.append(f"{skill.name}: {page.relative_to(skill)} has missing link {target}")
 print(f"Checked {len(skills)} skills at {root}")
 if failures:
     for failure in failures:

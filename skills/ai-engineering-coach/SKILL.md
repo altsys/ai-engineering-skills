@@ -53,20 +53,20 @@ Resume from an available checkpoint; provide a compact checkpoint at session end
 
 Use this as a map, not a rigid sequence.
 
-- [LLM fundamentals](topics/llm-fundamentals/SKILL.md)
-- [Prompting and Structured Outputs](topics/prompting-structured-outputs/SKILL.md)
-- [Embeddings](topics/embeddings/SKILL.md)
-- [Retrieval](topics/retrieval/SKILL.md)
-- [Retrieval-Augmented Generation](topics/rag/SKILL.md)
-- [Tool Calling](topics/tool-calling/SKILL.md)
-- [Agents and Workflows](topics/agents-workflows/SKILL.md)
-- [Evaluations](topics/evals/SKILL.md)
-- [Observability](topics/observability/SKILL.md)
-- [Latency and Cost](topics/latency-cost/SKILL.md)
-- [Model Selection](topics/model-selection/SKILL.md)
-- [Serving and Deployment](topics/serving-deployment/SKILL.md)
-- [Safety and Failure Handling](topics/safety-failure-handling/SKILL.md)
-- [Production AI System Design](topics/production-ai-system-design/SKILL.md)
+- [LLM fundamentals](topics/llm-fundamentals/TOPIC.md)
+- [Prompting and Structured Outputs](topics/prompting-structured-outputs/TOPIC.md)
+- [Embeddings](topics/embeddings/TOPIC.md)
+- [Retrieval](topics/retrieval/TOPIC.md)
+- [Retrieval-Augmented Generation](topics/rag/TOPIC.md)
+- [Tool Calling](topics/tool-calling/TOPIC.md)
+- [Agents and Workflows](topics/agents-workflows/TOPIC.md)
+- [Evaluations](topics/evals/TOPIC.md)
+- [Observability](topics/observability/TOPIC.md)
+- [Latency and Cost](topics/latency-cost/TOPIC.md)
+- [Model Selection](topics/model-selection/TOPIC.md)
+- [Serving and Deployment](topics/serving-deployment/TOPIC.md)
+- [Safety and Failure Handling](topics/safety-failure-handling/TOPIC.md)
+- [Production AI System Design](topics/production-ai-system-design/TOPIC.md)
 
 Route by the diagnosed gap, not list order. Pass the learner goal, relevant concept records, evidence, and pending probe. Read the selected skill before teaching; return its evidence to the same record.
 

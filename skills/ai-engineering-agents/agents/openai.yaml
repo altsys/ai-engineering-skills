@@ -1,0 +1,3 @@
+interface:
+  display_name: "AI Engineering Agents"
+  short_description: "Tool use, agent workflows, and safe failures"

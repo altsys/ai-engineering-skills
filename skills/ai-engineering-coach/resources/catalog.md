@@ -6,20 +6,20 @@ Reviewed on 2026-10-19. Select a resource after diagnosing a gap; this is a rout
 
 | Topic skill | First resource | Alternative when the gap differs |
 | --- | --- | --- |
-| [llm-fundamentals](../skills/llm-fundamentals/SKILL.md) | [hf-inference](#hf-inference) | Use the alternatives field in the selected entry. |
-| [prompting-structured-outputs](../skills/prompting-structured-outputs/SKILL.md) | [claude-structured](#claude-structured) | Use the alternatives field in the selected entry. |
-| [embeddings](../skills/embeddings/SKILL.md) | [sbert-semantic](#sbert-semantic) | [scratch-embeddings](#scratch-embeddings) |
-| [retrieval](../skills/retrieval/SKILL.md) | [sbert-rerank](#sbert-rerank) | Use the alternatives field in the selected entry. |
-| [rag](../skills/rag/SKILL.md) | [scratch-rag](#scratch-rag) | Use the alternatives field in the selected entry. |
-| [tool-calling](../skills/tool-calling/SKILL.md) | [claude-tools](#claude-tools) | Use the alternatives field in the selected entry. |
-| [agents-workflows](../skills/agents-workflows/SKILL.md) | [anthropic-agents](#anthropic-agents) | Use the alternatives field in the selected entry. |
-| [evals](../skills/evals/SKILL.md) | [anthropic-evals](#anthropic-evals) | Use the alternatives field in the selected entry. |
-| [observability](../skills/observability/SKILL.md) | [otel-spans](#otel-spans) | Use the alternatives field in the selected entry. |
-| [latency-cost](../skills/latency-cost/SKILL.md) | [hf-inference](#hf-inference) | [hf-streaming](#hf-streaming), [scratch-cost](#scratch-cost) |
-| [model-selection](../skills/model-selection/SKILL.md) | [claude-model-choice](#claude-model-choice) | Use the alternatives field in the selected entry. |
-| [serving-deployment](../skills/serving-deployment/SKILL.md) | [hf-serving](#hf-serving) | Use the alternatives field in the selected entry. |
-| [safety-failure-handling](../skills/safety-failure-handling/SKILL.md) | [claude-injection](#claude-injection) | Use the alternatives field in the selected entry. |
-| [production-ai-system-design](../skills/production-ai-system-design/SKILL.md) | [google-slos](#google-slos) | Use the alternatives field in the selected entry. |
+| [llm-fundamentals](../topics/llm-fundamentals/TOPIC.md) | [hf-inference](#hf-inference) | Use the alternatives field in the selected entry. |
+| [prompting-structured-outputs](../topics/prompting-structured-outputs/TOPIC.md) | [claude-structured](#claude-structured) | Use the alternatives field in the selected entry. |
+| [embeddings](../topics/embeddings/TOPIC.md) | [sbert-semantic](#sbert-semantic) | [scratch-embeddings](#scratch-embeddings) |
+| [retrieval](../topics/retrieval/TOPIC.md) | [sbert-rerank](#sbert-rerank) | Use the alternatives field in the selected entry. |
+| [rag](../topics/rag/TOPIC.md) | [scratch-rag](#scratch-rag) | Use the alternatives field in the selected entry. |
+| [tool-calling](../topics/tool-calling/TOPIC.md) | [claude-tools](#claude-tools) | Use the alternatives field in the selected entry. |
+| [agents-workflows](../topics/agents-workflows/TOPIC.md) | [anthropic-agents](#anthropic-agents) | Use the alternatives field in the selected entry. |
+| [evals](../topics/evals/TOPIC.md) | [anthropic-evals](#anthropic-evals) | Use the alternatives field in the selected entry. |
+| [observability](../topics/observability/TOPIC.md) | [otel-spans](#otel-spans) | Use the alternatives field in the selected entry. |
+| [latency-cost](../topics/latency-cost/TOPIC.md) | [hf-inference](#hf-inference) | [hf-streaming](#hf-streaming), [scratch-cost](#scratch-cost) |
+| [model-selection](../topics/model-selection/TOPIC.md) | [claude-model-choice](#claude-model-choice) | Use the alternatives field in the selected entry. |
+| [serving-deployment](../topics/serving-deployment/TOPIC.md) | [hf-serving](#hf-serving) | Use the alternatives field in the selected entry. |
+| [safety-failure-handling](../topics/safety-failure-handling/TOPIC.md) | [claude-injection](#claude-injection) | Use the alternatives field in the selected entry. |
+| [production-ai-system-design](../topics/production-ai-system-design/TOPIC.md) | [google-slos](#google-slos) | Use the alternatives field in the selected entry. |
 
 ## Selection and maintenance
 

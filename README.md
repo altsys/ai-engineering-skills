@@ -5,7 +5,7 @@
 Requires Node.js/npm and a supported coding agent (such as Codex or Claude Code). You do **not** need to install the `skills` CLI globally: `npx` downloads and runs it on demand.
 
 ```bash
-# See the skills available in this repository
+# See the five installable skills in this repository
 npx skills add altsys/ai-engineering-skills --list
 
 # Install interactively (choose skills and target agent)
@@ -13,13 +13,16 @@ npx skills add altsys/ai-engineering-skills
 
 # Example: install the coach globally for Codex
 npx skills add altsys/ai-engineering-skills --skill ai-engineering-coach -a codex -g
+
+# Or install a subject group
+npx skills add altsys/ai-engineering-skills --skill ai-engineering-knowledge-systems -a codex -g
 ```
 
 Then start your agent and ask:
 
 > Use the ai-engineering-coach skill. Help me understand why LLMs hallucinate. Diagnose my current mental model before explaining anything, and give me a small experiment.
 
-****Standalone packaging:** Each skill now bundles its own `shared/`, `resources/`, and `scripts/learner_progress.py`, so the installed folder does not depend on files outside itself. The coach also bundles the topic instructions it routes to. Bundled assets are source copies; when changing shared protocols, update all bundled copies too. Automated checks validate local links and required files.
+**Standalone packaging:** Each group and the coach bundle `shared/`, `resources/`, and `scripts/learner_progress.py`, so an installed folder works on its own. Topic guides live inside their group and the coach. After changing a topic guide or shared protocol, run `python3 scripts/sync_group_packages.py` to refresh the group copies. Automated checks validate local links and required files.
 
 To validate the source repository:
 
@@ -112,7 +115,7 @@ A skill should select a resource **after identifying the learning need**. When a
 
 The goal is not to collect links. Every resource should earn its place.
 
-The [resource catalog](resources/catalog.md) maps all 14 topic skills to reviewed sections, prerequisites, focused exercises, and alternatives. It includes selected AI Engineering from Scratch lessons, Hugging Face material, and official engineering documentation. The catalog records where toy implementations and provider-specific behavior limit an example.
+The [resource catalog](resources/catalog.md) maps all 14 topic guides to reviewed sections, prerequisites, focused exercises, and alternatives. It includes selected AI Engineering from Scratch lessons, Hugging Face material, and official engineering documentation. The catalog records where toy implementations and provider-specific behavior limit an example.
 
 ## Adaptive scope
 
@@ -135,33 +138,14 @@ This means two learners may take very different paths through the same skill. "F
 skills/
   ai-engineering-coach/
     SKILL.md
-  llm-fundamentals/
+    topics/<topic>/TOPIC.md
+  ai-engineering-foundations/
     SKILL.md
-  prompting-structured-outputs/
+  ai-engineering-knowledge-systems/
     SKILL.md
-  embeddings/
+  ai-engineering-agents/
     SKILL.md
-  retrieval/
-    SKILL.md
-  rag/
-    SKILL.md
-  tool-calling/
-    SKILL.md
-  agents-workflows/
-    SKILL.md
-  evals/
-    SKILL.md
-  observability/
-    SKILL.md
-  latency-cost/
-    SKILL.md
-  model-selection/
-    SKILL.md
-  serving-deployment/
-    SKILL.md
-  safety-failure-handling/
-    SKILL.md
-  production-ai-system-design/
+  ai-engineering-production/
     SKILL.md
 
 shared/
@@ -174,30 +158,21 @@ resources/
   catalog.md
 ```
 
-The master coach helps identify the next important gap and routes learning across topic skills. Topic skills contain the competency map, diagnostic behavior, intervention strategies, experiments, resource guidance, and standards for evidence of understanding.
+The coach helps identify the next important gap across all topics. Each group routes within one subject area. Its bundled topic guides contain competency maps, diagnostics, interventions, experiments, resource guidance, and evidence rules.
 
-## Topic skills
+## Skill groups
 
-Choose a skill directly or let the coach route from the current gap. Each topic provides a competency map, a diagnostic probe, a controlled experiment, transfer evidence, and a learner-model handoff.
+Choose a subject group or let the coach route from the current gap. The groups are maps of related capabilities, not a required teaching sequence.
 
-| Skill | Focus |
+| Installable skill | Topics |
 | --- | --- |
-| [LLM Fundamentals](skills/llm-fundamentals/SKILL.md) | Predict and explain model behavior |
-| [Prompting and Structured Outputs](skills/prompting-structured-outputs/SKILL.md) | Prompt reliability, examples, schema-constrained generation, or invalid structured responses |
-| [Embeddings](skills/embeddings/SKILL.md) | Vector representations, semantic similarity, embedding models, or nearest-neighbor behavior |
-| [Retrieval](skills/retrieval/SKILL.md) | Search quality, chunking, hybrid search, reranking, or retrieval misses |
-| [Retrieval-Augmented Generation](skills/rag/SKILL.md) | Grounded answers, citations, retrieved context, or RAG system failures |
-| [Tool Calling](skills/tool-calling/SKILL.md) | Function calls, tool schemas, tool execution, or external actions requested by a model |
-| [Agents and Workflows](skills/agents-workflows/SKILL.md) | Agent loops, planning, autonomous execution, workflow orchestration, or stopping behavior |
-| [Evaluations](skills/evals/SKILL.md) | LLM quality measurement, regression testing, benchmark design, or model-based judges |
-| [Observability](skills/observability/SKILL.md) | LLM tracing, production debugging, quality monitoring, or telemetry design |
-| [Latency and Cost](skills/latency-cost/SKILL.md) | Token budgets, slow responses, caching, batching, or inference cost tradeoffs |
-| [Model Selection](skills/model-selection/SKILL.md) | Choosing or comparing models, model routing, or deciding whether a larger model is needed |
-| [Serving and Deployment](skills/serving-deployment/SKILL.md) | Deploying LLM services, inference capacity, load handling, or rollout reliability |
-| [Safety and Failure Handling](skills/safety-failure-handling/SKILL.md) | Prompt injection, unsafe tool actions, data leakage, or resilient LLM failure behavior |
-| [Production AI System Design](skills/production-ai-system-design/SKILL.md) | End-to-end AI architecture, production tradeoffs, or integrating quality, reliability, and operational constraints |
+| [AI Engineering Coach](skills/ai-engineering-coach/SKILL.md) | All 14 topics and cross-topic planning |
+| [Foundations](skills/ai-engineering-foundations/SKILL.md) | LLM fundamentals, prompting and structured outputs, model selection |
+| [Knowledge Systems](skills/ai-engineering-knowledge-systems/SKILL.md) | Embeddings, retrieval, RAG |
+| [Agents](skills/ai-engineering-agents/SKILL.md) | Tool calling, agent workflows, safety and failure handling |
+| [Production](skills/ai-engineering-production/SKILL.md) | Evaluations, observability, latency and cost, serving and deployment, system design |
 
-Keep this repository together when using the skills: topic instructions depend on `shared/` and `resources/`. Copying a topic folder alone omits the shared teaching and learner-model protocols.
+Install a group or the coach as one folder. The bundled topic guides use that folder's shared protocols and resource catalog.
 
 ## What this is not
 
